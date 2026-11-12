@@ -1,0 +1,4633 @@
+{
+  "schema": "rmm-sentinel-catalog/1",
+  "version": "0.1.0",
+  "generated_at": "2026-11-12",
+  "license_note": "Derived data under Apache-2.0 attribution (see NOTICE); catalog format and metadata under CC-BY-4.0.",
+  "source": {
+    "name": "LOLRMM (Living Off The Land - Remote Monitoring & Management)",
+    "url": "https://lolrmm.io/",
+    "api_snapshot_url": "https://lolrmm.io/api/rmm_tools.json",
+    "repo_url": "https://github.com/magicsword-io/LOLRMM",
+    "license": "Apache-2.0",
+    "snapshot_date": "2026-11-12",
+    "scope": "Category RMM entries with at least one extractable Windows artifact (process, service, scheduled task, uninstall key or install path). Linux/macOS artifacts are out of scope for the v0.1 Windows scan."
+  },
+  "tools": [
+    {
+      "id": "absolute-computrace",
+      "name": "Absolute (Computrace)",
+      "artifacts": {
+        "processes": [
+          "rpcnet.exe",
+          "ctes.exe",
+          "ctespersistence.exe",
+          "cteshostsvc.exe",
+          "rpcld.exe"
+        ]
+      },
+      "references": [
+        "https://www.absolute.com/",
+        "https://community.absolute.com/s/article/Understanding-Absolutes-Endpoint-Agents-Rpcnet-CTES-and-search-namequery-com"
+      ]
+    },
+    {
+      "id": "access-remote-pc",
+      "name": "Access Remote PC",
+      "artifacts": {
+        "processes": [
+          "RemotePCUIU.exe"
+        ],
+        "services": [
+          "RemotePC Performance Service"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\RemotePC\\*",
+          "C:\\Program Files (x86)\\RemotePC\\"
+        ]
+      },
+      "references": [
+        "https://www.remotedesktop.com/"
+      ]
+    },
+    {
+      "id": "acronis-cyber-protect-remotix",
+      "name": "Acronis Cyber Protect (Remotix)",
+      "artifacts": {
+        "processes": [
+          "AcronisCyberProtectConnectQuickAssist*.exe",
+          "AcronisCyberProtectConnectAgent.exe"
+        ]
+      },
+      "references": [
+        "https://www.acronis.com/en/products/cyber-protect-connect/",
+        "https://kb.acronis.com/content/47189"
+      ]
+    },
+    {
+      "id": "action1",
+      "name": "Action1",
+      "artifacts": {
+        "processes": [
+          "action1_connector.exe",
+          "action1_remote.exe",
+          "action1_update.exe",
+          "action1_agent.exe"
+        ],
+        "services": [
+          "A1Agent"
+        ],
+        "install_paths": [
+          "C:\\Windows\\Action1\\*",
+          "C:\\Windows\\Action1\\",
+          "C:\\Windows\\Action1\\scripts\\",
+          "C:\\Windows\\Action1\\rule_data\\"
+        ]
+      },
+      "references": [
+        "https://www.action1.com/",
+        "https://www.action1.com/documentation/firewall-configuration/",
+        "https://www.action1.com/documentation/",
+        "https://twitter.com/Kostastsale/status/1646256901506605063?s=20"
+      ]
+    },
+    {
+      "id": "aeroadmin",
+      "name": "AeroAdmin",
+      "artifacts": {
+        "processes": [
+          "aeroadmin.exe"
+        ]
+      },
+      "references": [
+        "http://aeroadmin.com/",
+        "https://support.aeroadmin.com/kb/faq.php?id=58"
+      ]
+    },
+    {
+      "id": "aliwangwang-remote-control",
+      "name": "AliWangWang-remote-control",
+      "artifacts": {
+        "processes": [
+          "alitask.exe"
+        ]
+      },
+      "references": [
+        "https://wangwang.taobao.com/",
+        "https://github.com/KKomarov/AliWangWangEng/blob/master/chs.locale"
+      ]
+    },
+    {
+      "id": "allocentra",
+      "name": "Allocentra",
+      "artifacts": {
+        "processes": [
+          "allocentra-agent.exe"
+        ],
+        "services": [
+          "AllocentraAgent"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Allocentra\\Agent\\allocentra-agent.exe",
+          "*\\allocentra\\agent\\",
+          "*\\"
+        ]
+      },
+      "references": [
+        "https://allocentra.co.za/",
+        "https://docs.allocentra.co.za/agent-installation",
+        "https://docs.allocentra.co.za/remote-control",
+        "https://docs.allocentra.co.za/scripts"
+      ]
+    },
+    {
+      "id": "alpemix",
+      "name": "Alpemix",
+      "artifacts": {
+        "processes": [
+          "Alpemix.exe",
+          "AlpemixService.exe"
+        ],
+        "services": [
+          "AlpemixSrvc",
+          "AlpemixSrvcx"
+        ],
+        "install_paths": [
+          "C:\\AlpemixService.exe",
+          "C:\\AlpemixSrvc\\",
+          "%localappdata%\\Alpemix\\"
+        ]
+      },
+      "references": [
+        "https://www.alpemix.com/en/Home",
+        "https://www.alpemix.com/en/remote-access"
+      ]
+    },
+    {
+      "id": "ammyy-admin",
+      "name": "Ammyy Admin",
+      "artifacts": {
+        "processes": [
+          "AA_v3.exe",
+          "AMMYY_Admin.exe",
+          "aa_v*.exe"
+        ],
+        "services": [
+          "Ammyy Admin"
+        ],
+        "install_paths": [
+          "C:\\\\ProgramData\\\\AMMYY\\\\*",
+          "C:\\Users\\*\\Downloads\\AMMYY_Admin.exe",
+          "*\\AMMYY_Admin.exe",
+          "%programdata%\\\\AMMYY\\\\",
+          "%Binary_path%\\\\"
+        ]
+      },
+      "references": [
+        "https://www.ammyy.com",
+        "https://www.ammyy.com/en/admin_security.html",
+        "https://www.ammyy.com/en/admin_mu.html"
+      ]
+    },
+    {
+      "id": "any-support",
+      "name": "Any Support",
+      "artifacts": {
+        "processes": [
+          "ManualLauncher.exe"
+        ]
+      },
+      "references": [
+        "https://anysupport.net/",
+        "https://www.anysupport.net/introduce_howto.php"
+      ]
+    },
+    {
+      "id": "anydesk",
+      "name": "AnyDesk",
+      "artifacts": {
+        "processes": [
+          "anydesk.exe",
+          "AnyDesk-*.exe"
+        ],
+        "services": [
+          "AnyDesk Service",
+          "AnyDesk * Service",
+          "AnyDesk"
+        ],
+        "uninstall_key_names": [
+          "AnyDesk",
+          "AnyDesk-*"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\AnyDesk\\*",
+          "C:\\Program Files (x86)\\AnyDesk\\AnyDesk.exe",
+          "C:\\Program Files\\AnyDesk\\*",
+          "C:\\Program Files (x86)\\AnyDesk-*\\*",
+          "C:\\Program Files (x86)\\AnyDesk-*\\AnyDesk-*.exe",
+          "C:\\Program Files\\AnyDesk-*\\AnyDesk-*.exe",
+          "%programdata%\\AnyDesk\\",
+          "%APPDATA%\\AnyDesk\\",
+          "*\\AppData\\Roaming\\AnyDesk\\",
+          "*\\ProgramData\\AnyDesk\\",
+          "%APPDATA%\\AnyDesk\\chat\\",
+          "*\\ProgramData\\AnyDesk\\ad_*\\"
+        ]
+      },
+      "references": [
+        "https://anydesk.com/en",
+        "https://support.anydesk.com/docs/settings",
+        "https://support.anydesk.com/docs/advanced-options",
+        "https://support.anydesk.com/docs/unattended-access"
+      ]
+    },
+    {
+      "id": "anyplace-control",
+      "name": "Anyplace Control",
+      "artifacts": {
+        "processes": [
+          "apc_host.exe"
+        ]
+      },
+      "references": [
+        "http://www.anyplace-control.com/",
+        "http://www.anyplace-control.com/anyplace-control/help/faq.htm"
+      ]
+    },
+    {
+      "id": "anyviewer",
+      "name": "AnyViewer",
+      "artifacts": {
+        "processes": [
+          "AnyViewer.exe",
+          "RCClient.exe",
+          "ScreanCap.exe",
+          "AVCore.exe",
+          "RCService.exe"
+        ],
+        "services": [
+          "RCService"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\AnyViewer\\*"
+        ]
+      },
+      "references": [
+        "https://www.anyviewer.com/",
+        "https://www.anyviewer.com/how-to/how-to-open-firewall-ports-for-remote-desktop-0427-gc.html",
+        "https://www.anyviewer.com/help/remote-technical-support.html"
+      ]
+    },
+    {
+      "id": "aspia",
+      "name": "Aspia",
+      "artifacts": {
+        "processes": [
+          "aspia_client.exe"
+        ],
+        "install_paths": [
+          "*\\aspia_client.exe",
+          "C:\\Program Files\\Aspia\\",
+          "C:\\Program Files (x86)\\Aspia\\",
+          "C:\\Users\\*\\AppData\\Roaming\\aspia\\",
+          "C:\\Users\\*\\AppData\\Local\\Temp\\aspia\\",
+          "C:\\Program Files\\Aspia\\Client\\"
+        ]
+      },
+      "references": [
+        "https://aspia.org/",
+        "https://ics-cert.kaspersky.com/publications/reports/2025/06/05/ttps-of-cyber-partisans-activity-aimed-at-espionage-and-disruption/",
+        "https://www.aspia.org/",
+        "https://github.com/dchapyshev/aspia"
+      ]
+    },
+    {
+      "id": "atera",
+      "name": "Atera",
+      "artifacts": {
+        "processes": [
+          "AteraAgent.exe",
+          "AgentPackageNetworkDiscovery.exe",
+          "AgentPackageTaskScheduler.exe",
+          "atera_agent.exe",
+          "syncrosetup.exe",
+          "AlphaAgent.exe",
+          "AgentPackageSTRemote.exe",
+          "AgentPackageMonitoring.exe",
+          "AgentPackageHeartbeat.exe",
+          "AgentPackageFileExplorer.exe",
+          "AgentPackageRunCommandInteractive.exe"
+        ],
+        "services": [
+          "AteraAgent",
+          "WinRing0_1_2_0"
+        ],
+        "uninstall_key_names": [
+          "Splashtop Software Updater"
+        ],
+        "install_paths": [
+          "*\\AgentPackageNetworkDiscovery.exe",
+          "*\\AgentPackageTaskScheduler.exe",
+          "*\\ATERA Networks\\AteraAgent\\*",
+          "*\\AteraAgent.exe",
+          "C:\\Program Files\\ATERA Networks\\AteraAgent\\*",
+          "C:\\Program Files\\Atera Networks",
+          "C:\\Program Files (x86)\\Atera Networks",
+          "C:\\Program Files\\ATERA Networks\\AteraAgent\\Packages\\AgentPackageRunCommandInteractive\\",
+          "C:\\Program Files\\ATERA Networks\\AteraAgent\\Packages\\",
+          "C:\\Program Files\\ATERA Networks\\AteraAgent\\",
+          "C:\\Program Files\\Atera Networks\\",
+          "C:\\Program Files\\ATERA Networks\\AteraAgent\\Packages\\AgentPackageSTRemote\\"
+        ]
+      },
+      "references": [
+        "https://www.atera.com/",
+        "https://support.atera.com/hc/en-us/articles/360015461139-Firewall-Settings-for-Atera-s-Integrations",
+        "https://support.atera.com/hc/en-us/articles/215955967-Troubleshoot-Atera-s-Windows-agent",
+        "https://support.atera.com/hc/en-us/articles/115015619747-Release-Notes-February-2018"
+      ]
+    },
+    {
+      "id": "auvik",
+      "name": "Auvik",
+      "artifacts": {
+        "processes": [
+          "auvik.engine.exe",
+          "auvik.agent.exe"
+        ]
+      },
+      "references": [
+        "https://www.auvik.com/",
+        "https://support.auvik.com/hc/en-us/articles/204315700-What-protocols-and-ports-does-the-Auvik-collector-use"
+      ]
+    },
+    {
+      "id": "aweray",
+      "name": "AweRay",
+      "artifacts": {
+        "processes": [
+          "aweray_remote*.exe",
+          "AweSun.exe"
+        ]
+      },
+      "references": [
+        "https://awesun.aweray.com/en",
+        "https://sun.aweray.com/help"
+      ]
+    },
+    {
+      "id": "baramundi-management-suite",
+      "name": "baramundi Management Suite",
+      "artifacts": {
+        "processes": [
+          "bma.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\bsag\\bma\\*",
+          "C:\\Program Files\\bsag\\*",
+          "C:\\Program Files (x86)\\bsag\\bma\\*",
+          "C:\\Program Files (x86)\\bsag\\*",
+          "C:\\Program Files\\bsag\\bma\\"
+        ]
+      },
+      "references": [
+        "https://www.baramundi.com/en-us/",
+        "https://www.baramundi.com/en-us/management-suite/",
+        "https://www.baramundi.com/en-us/resources/demo-trial-version/",
+        "https://www.herdprotect.com/bma.exe-fcf742c1a764b713f94e0e377e4e4089c1274dfc.aspx"
+      ]
+    },
+    {
+      "id": "beacon-synertek",
+      "name": "Beacon (Synertek)",
+      "artifacts": {
+        "processes": [
+          "beacon-agent.exe"
+        ],
+        "services": [
+          "BeaconAgent"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Beacon\\beacon-agent.exe",
+          "C:\\ProgramData\\Beacon\\credential.json",
+          "C:\\ProgramData\\Beacon\\agent.log",
+          "C:\\Program Files\\Beacon\\",
+          "C:\\ProgramData\\Beacon\\"
+        ]
+      },
+      "references": [
+        "https://github.com/synertek-cloud-services/beacon",
+        "https://github.com/synertek-cloud-services/beacon/blob/e3b790b72d18ed6243cc18759839ee2059022f6a/README.md",
+        "https://github.com/synertek-cloud-services/beacon/blob/e3b790b72d18ed6243cc18759839ee2059022f6a/docs/BETA_PLATFORM_SUPPORT.md",
+        "https://github.com/synertek-cloud-services/beacon/blob/e3b790b72d18ed6243cc18759839ee2059022f6a/agent/internal/service/install_windows.go"
+      ]
+    },
+    {
+      "id": "beamyourscreen",
+      "name": "BeamYourScreen",
+      "artifacts": {
+        "processes": [
+          "beamyourscreen.exe",
+          "beamyourscreen-host.exe"
+        ]
+      },
+      "references": [
+        "https://web.archive.org/web/20210304100510/https://www.beamyourscreen.com/",
+        "https://www.mikogo.com/"
+      ]
+    },
+    {
+      "id": "beanywhere",
+      "name": "BeAnyWhere",
+      "artifacts": {
+        "processes": [
+          "basuptshelper.exe",
+          "basupsrvcupdate.exe",
+          "BASupApp.exe",
+          "BASupSysInf.exe",
+          "BASupAppSrvc.exe",
+          "TakeControl.exe",
+          "BASupAppElev.exe",
+          "basupsrvc.exe"
+        ]
+      },
+      "references": [
+        "https://www.n-able.com/products/take-control",
+        "https://www.shouldiremoveit.com/beanywhere-support-service-40908-program.aspx"
+      ]
+    },
+    {
+      "id": "beyondtrust-bomgar",
+      "name": "BeyondTrust (Bomgar)",
+      "artifacts": {
+        "processes": [
+          "bomgar-scc-*.exe",
+          "bomgar-scc.exe",
+          "bomgar-pac-*.exe",
+          "bomgar-pac.exe",
+          "bomgar-rdp.exe"
+        ]
+      },
+      "references": [
+        "https://www.beyondtrust.com/products/remote-support",
+        "https://www.beyondtrust.com/docs/remote-support/getting-started/deployment/cloud/network.htm"
+      ]
+    },
+    {
+      "id": "borealis",
+      "name": "Borealis",
+      "artifacts": {
+        "services": [
+          "BorealisAgent"
+        ],
+        "install_paths": [
+          "C:\\Borealis\\*",
+          "C:\\Borealis\\agent.json",
+          "C:\\Borealis\\Logs\\Agent\\agent.log",
+          "C:\\Borealis\\",
+          "C:\\Borealis\\Logs\\Agent\\"
+        ]
+      },
+      "references": [
+        "https://github.com/bunny-lab-io/Borealis",
+        "https://github.com/bunny-lab-io/Borealis/blob/19288159199132f29d276e4dbbbfa694807987ff/README.md",
+        "https://github.com/bunny-lab-io/Borealis/blob/19288159199132f29d276e4dbbbfa694807987ff/Data/Agent/build-agent.sh",
+        "https://github.com/bunny-lab-io/Borealis/blob/19288159199132f29d276e4dbbbfa694807987ff/Data/Agent/internal/runtime/service.go"
+      ]
+    },
+    {
+      "id": "breezermm",
+      "name": "BreezeRMM",
+      "artifacts": {
+        "processes": [
+          "breeze-agent.exe",
+          "breeze-watchdog.exe",
+          "breeze-user-helper.exe",
+          "breeze-backup.exe",
+          "PixoIT-agent.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Breeze\\*",
+          "C:\\ProgramData\\Breeze\\*",
+          "C:\\Program Files\\Breeze\\",
+          "C:\\Program Files\\Breeze\\scripts\\install\\",
+          "C:\\ProgramData\\Breeze\\",
+          "C:\\ProgramData\\Breeze\\logs\\"
+        ]
+      },
+      "references": [
+        "https://breezermm.com/",
+        "https://breeze.app/",
+        "https://github.com/LanternOps/breeze",
+        "https://github.com/LanternOps/breeze/releases/tag/v0.115.0"
+      ]
+    },
+    {
+      "id": "centrastage-now-datto",
+      "name": "CentraStage (Now Datto)",
+      "artifacts": {
+        "processes": [
+          "CagService.exe",
+          "AEMAgent.exe"
+        ]
+      },
+      "references": [
+        "https://rmm.datto.com/help",
+        "https://rmm.datto.com/help/de/Content/1INTRODUCTION/Requirements/AllowListRequirements.htm"
+      ]
+    },
+    {
+      "id": "centurion",
+      "name": "Centurion",
+      "artifacts": {
+        "processes": [
+          "ctiserv.exe"
+        ]
+      },
+      "references": [
+        "https://data443.atlassian.net/servicedesk/customer/portal/20"
+      ]
+    },
+    {
+      "id": "comodo-rmm",
+      "name": "Comodo RMM",
+      "artifacts": {
+        "processes": [
+          "itsmagent.exe",
+          "rviewer.exe"
+        ]
+      },
+      "references": [
+        "https://one.comodo.com/",
+        "https://help.itarian.com/topic-459-1-1005-14776-Appendix-1b---Endpoint-Manager-Services---IP-Nos,-Host-Names-and-Port-Details---US-Customers.html"
+      ]
+    },
+    {
+      "id": "connectwise",
+      "name": "ConnectWise",
+      "artifacts": {
+        "install_paths": [
+          "C:\\Program Files (x86)\\ScreenConnect Client (<string ID>)\\*",
+          "*\\ScreenConnect*Client*\\*"
+        ]
+      },
+      "references": [
+        "https://www.screenconnect.com/"
+      ]
+    },
+    {
+      "id": "connectwise-automate-labtech",
+      "name": "Connectwise Automate (LabTech)",
+      "artifacts": {
+        "processes": [
+          "ltsvc.exe",
+          "ltsvcmon.exe",
+          "lttray.exe"
+        ]
+      },
+      "references": [
+        "https://www.connectwise.com/platform/automate",
+        "https://www.connectwise.com/company/announcements/labtech-now-connectwise-automate"
+      ]
+    },
+    {
+      "id": "connectwise-control",
+      "name": "ConnectWise Control",
+      "artifacts": {
+        "processes": [
+          "connectwisechat-customer.exe",
+          "connectwisecontrol.client.exe",
+          "screenconnect.windowsclient.exe"
+        ]
+      },
+      "references": [
+        "https://www.screenconnect.com/"
+      ]
+    },
+    {
+      "id": "controlio",
+      "name": "Controlio",
+      "artifacts": {
+        "processes": [
+          "wesvc.exe",
+          "weCliboardListener.exe",
+          "bbl.exe",
+          "weprtct.exe",
+          "wemonc.exe",
+          "weInstSvc.exe",
+          "weClipboardListener.exe",
+          "wec_launcher_[a-Z0-9]*_.exe"
+        ],
+        "install_paths": [
+          "C:\\ProgramData\\{E0E95C6C-F194-4846-928D-E5538022226D}\\"
+        ]
+      },
+      "references": [
+        "https://controlio.net",
+        "https://www.knowyouradversary.ru/2026/01/366-adversaries-started-to-abuse.html",
+        "https://kb.controlio.net/hc/en-us/articles/360019139977-Which-paths-files-need-to-be-whitelisted-to-avoid-issues-with-the-work-of-Controlio",
+        "https://kb.controlio.net/hc/en-us/articles/360019262918-Which-processes-in-the-task-manager-belong-to-Contorlio-s-Client"
+      ]
+    },
+    {
+      "id": "controlr",
+      "name": "ControlR",
+      "artifacts": {
+        "processes": [
+          "ControlR.Agent.Installer.exe",
+          "ControlR.Agent.exe",
+          "ControlR.DesktopClient.exe"
+        ],
+        "uninstall_key_names": [
+          "ControlR",
+          "ControlR (*)"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\ControlR\\*\\ControlR.Agent.exe",
+          "C:\\Program Files\\ControlR\\*\\DesktopClient\\ControlR.DesktopClient.exe",
+          "C:\\Program Files\\ControlR\\*\\DesktopClient\\ControlR.DesktopClient.dll",
+          "C:\\ProgramData\\ControlR\\",
+          "*\\",
+          "C:\\Program Files\\ControlR\\*\\",
+          "C:\\ProgramData\\ControlR\\*\\",
+          "C:\\ProgramData\\ControlR\\*\\Logs\\ControlR.Agent\\",
+          "C:\\ProgramData\\ControlR\\*\\Logs\\ControlR.DesktopClient\\"
+        ]
+      },
+      "references": [
+        "https://controlr.app/",
+        "https://www.seqrite.com/blog/operation-shadowrecruit-a-recruitment-themed-malware-campaign-leveraging-controlr-and-google-sheets-to-target-indian-job-seekers/",
+        "https://github.com/bitbound/ControlR"
+      ]
+    },
+    {
+      "id": "crossloop",
+      "name": "CrossLoop",
+      "artifacts": {
+        "processes": [
+          "crossloopservice.exe",
+          "CrossLoopConnect.exe",
+          "WinVNCStub.exe"
+        ]
+      },
+      "references": [
+        "https://web.archive.org/web/20140117041805/http://www.crossloop.com/"
+      ]
+    },
+    {
+      "id": "crosstec-remote-control",
+      "name": "CrossTec Remote Control",
+      "artifacts": {
+        "processes": [
+          "PCIVIDEO.EXE",
+          "supporttool.exe"
+        ]
+      },
+      "references": [
+        "https://web.archive.org/web/20220811150547/https://www.crosstecsoftware.com/remotecontrol",
+        "https://www.crosstecsoftware.com/supporthome.html"
+      ]
+    },
+    {
+      "id": "dameware",
+      "name": "DameWare",
+      "artifacts": {
+        "processes": [
+          "SolarWinds-Dameware-DRS*.exe",
+          "dntus*.exe",
+          "dwrcs.exe",
+          "dwrcst.exe",
+          "SolarWinds-Dameware-MRC*.exe"
+        ],
+        "install_paths": [
+          "C:\\Windows\\dwrcs\\*",
+          "C:\\Program Files\\SolarWinds\\Dameware Mini Remote Control\\*",
+          "*\\dwrcs\\*",
+          "*\\dwrcst.exe"
+        ]
+      },
+      "references": [
+        "https://www.solarwinds.com/dameware/",
+        "https://documentation.solarwinds.com/en/success_center/dameware/content/install-standalone-port-requirements.htm"
+      ]
+    },
+    {
+      "id": "deskday",
+      "name": "DeskDay",
+      "artifacts": {
+        "processes": [
+          "ultimate_*.exe"
+        ]
+      },
+      "references": [
+        "https://deskday.com/",
+        "https://support.deskday.ai/en/articles/8235973-installing-the-end-user-application-ultimate"
+      ]
+    },
+    {
+      "id": "deskshare",
+      "name": "DeskShare",
+      "artifacts": {
+        "processes": [
+          "TeamTaskManager.exe",
+          "DSGuest.exe"
+        ]
+      },
+      "references": [
+        "https://deskshare.com/",
+        "https://www.deskshare.com/help/fml/Active-and-Passive-connection-mode.aspx"
+      ]
+    },
+    {
+      "id": "desktopnow",
+      "name": "DesktopNow",
+      "artifacts": {
+        "processes": [
+          "desktopnow.exe"
+        ]
+      },
+      "references": [
+        "https://www.nchsoftware.com/remotedesktop/index.html",
+        "https://forums.ivanti.com/s/article/Network-Ports-used-by-Environment-Manager?language=en_US"
+      ]
+    },
+    {
+      "id": "distant-desktop",
+      "name": "Distant Desktop",
+      "artifacts": {
+        "processes": [
+          "ddsystem.exe",
+          "dd.exe",
+          "distant-desktop.exe"
+        ]
+      },
+      "references": [
+        "https://www.distantdesktop.com/",
+        "https://www.distantdesktop.com/manual/first-start.htm"
+      ]
+    },
+    {
+      "id": "domotz",
+      "name": "Domotz",
+      "artifacts": {
+        "processes": [
+          "domotz.exe",
+          "domotz_bash.exe",
+          "domotz*.exe",
+          "domotz-windows*.exe"
+        ]
+      },
+      "references": [
+        "https://www.domotz.com/",
+        "https://help.domotz.com/tips-tricks/unblock-outgoing-connections-on-firewall/"
+      ]
+    },
+    {
+      "id": "dw-service",
+      "name": "DW Service",
+      "artifacts": {
+        "processes": [
+          "dwagsvc.exe",
+          "dwagent.exe",
+          "dwaglnc.exe"
+        ]
+      },
+      "references": [
+        "https://www.dwservice.net/",
+        "https://news.dwservice.net/dwservice-security-infrastructure/",
+        "https://www.rapid7.com/blog/post/tr-muddying-tracks-state-sponsored-shadow-behind-chaos-ransomware/"
+      ]
+    },
+    {
+      "id": "echoware",
+      "name": "Echoware",
+      "artifacts": {
+        "processes": [
+          "echoserver*.exe"
+        ]
+      },
+      "references": []
+    },
+    {
+      "id": "ehorus",
+      "name": "eHorus",
+      "artifacts": {
+        "processes": [
+          "ehorus_agent.exe",
+          "ehorus_cmd.exe",
+          "ehorus_launcher.exe",
+          "ehorus_uit.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\ehorus_agent\\*"
+        ]
+      },
+      "references": [
+        "https://ehorus.com"
+      ]
+    },
+    {
+      "id": "emco-remote-console",
+      "name": "EMCO Remote Console",
+      "artifacts": {
+        "processes": [
+          "remoteconsole.exe"
+        ]
+      },
+      "references": [
+        "https://emcosoftware.com/"
+      ]
+    },
+    {
+      "id": "endar",
+      "name": "Endar",
+      "artifacts": {
+        "processes": [
+          "endar.exe"
+        ]
+      },
+      "references": [
+        "https://github.com/tomkeene/endar",
+        "https://github.com/tomkeene/endar/blob/359a4495cd13711c82419e944abee14cb5c04979/README.md",
+        "https://github.com/tomkeene/endar/blob/359a4495cd13711c82419e944abee14cb5c04979/app/agent_api_v1/views.py",
+        "https://github.com/tomkeene/endar/releases/tag/1.0.0"
+      ]
+    },
+    {
+      "id": "ericom-accessnow",
+      "name": "Ericom AccessNow",
+      "artifacts": {
+        "processes": [
+          "accessserver*.exe",
+          "accessserver.exe"
+        ]
+      },
+      "references": [
+        "https://www.ericom.com/connect-accessnow/"
+      ]
+    },
+    {
+      "id": "ericom-connect",
+      "name": "Ericom Connect",
+      "artifacts": {
+        "processes": [
+          "EricomConnectRemoteHost*.exe",
+          "ericomconnectconfigurationtool.exe"
+        ]
+      },
+      "references": [
+        "https://www.ericom.com/connect-accessnow/"
+      ]
+    },
+    {
+      "id": "eset-remote-administrator",
+      "name": "ESET Remote Administrator",
+      "artifacts": {
+        "processes": [
+          "era.exe",
+          "einstaller.exe",
+          "ezhelp*.exe",
+          "eratool.exe",
+          "ERAAgent.exe"
+        ]
+      },
+      "references": [
+        "https://www.eset.com/me/business/remote-management/remote-administrator/",
+        "https://eset.com/me/business/remote-management/remote-administrator/"
+      ]
+    },
+    {
+      "id": "ezhelp",
+      "name": "ezHelp",
+      "artifacts": {
+        "processes": [
+          "ezhelpclientmanager.exe",
+          "ezHelpManager.exe",
+          "ezhelpclient.exe"
+        ]
+      },
+      "references": [
+        "https://ezhelp.co.kr/",
+        "https://www.exhelp.co.kr"
+      ]
+    },
+    {
+      "id": "faronics-core",
+      "name": "Faronics Core",
+      "artifacts": {
+        "processes": [
+          "FaronicsCoreAgent.exe",
+          "CoreAgentService.exe"
+        ],
+        "services": [
+          "FaronicsCoreAgent"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Faronics\\Faronics Core\\*",
+          "C:\\Program Files\\Faronics\\Faronics Core\\Workstation Agent\\*",
+          "C:\\Program Files\\Faronics\\Core\\Console\\*",
+          "C:\\Program Files (x86)\\Faronics\\Faronics Core\\*",
+          "*\\Faronics\\Faronics Core\\Workstation Agent\\FaronicsCoreAgent.exe",
+          "*\\Faronics\\Faronics Core\\Workstation Agent\\CoreAgentService.exe",
+          "C:\\ProgramData\\Faronics\\FCAForStartupMonitor.msi",
+          "C:\\Program Files\\Faronics\\Faronics Core\\Workstation Agent\\",
+          "C:\\ProgramData\\Faronics\\"
+        ]
+      },
+      "references": [
+        "https://www.faronics.com/products/faronics-core",
+        "https://www.faronics.com/assets/FCC_Manual.pdf",
+        "https://www.faronics.com/document-library/document/faronics-core-release-notes",
+        "https://www.virustotal.com/gui/file/6f78a2dc13eaf007bd83cdda91ff4d53e737e0b7205d1ae9e38f2bfd831fdb6d"
+      ]
+    },
+    {
+      "id": "faronics-deep-freeze",
+      "name": "Faronics Deep Freeze",
+      "artifacts": {
+        "processes": [
+          "DFServ.exe",
+          "DFServEx.exe",
+          "DFWks.exe",
+          "DFStd.exe",
+          "DFStdInstall.exe",
+          "DFC.exe",
+          "CloudWksInstall.exe",
+          "DFInst.exe"
+        ],
+        "services": [
+          "DFServ"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Faronics\\Deep Freeze\\*",
+          "C:\\Program Files (x86)\\Faronics\\Deep Freeze\\*",
+          "C:\\Program Files (x86)\\Faronics\\Deep Freeze\\Install C-0\\*",
+          "C:\\Program Files (x86)\\Faronics\\Deep Freeze\\Install C-1\\*",
+          "C:\\Program Files\\Faronics Corporation\\Deep Freeze 7.00\\*",
+          "*\\Faronics\\Deep Freeze\\DFServ.exe",
+          "*\\Faronics\\Deep Freeze\\DFServEx.exe",
+          "*\\Faronics\\Deep Freeze\\DFWks.exe",
+          "*\\Faronics\\Deep Freeze\\DFC.exe",
+          "C:\\Program Files (x86)\\Faronics\\Deep Freeze\\",
+          "C:\\Windows\\Temp\\",
+          "C:\\Users\\<USER>\\AppData\\Local\\Temp\\_$Df\\"
+        ]
+      },
+      "references": [
+        "https://www.faronics.com/products/deep-freeze",
+        "https://docs.faronics.com/deep-freeze-cloud",
+        "https://www.faronics.com/webhelp/DFE/860/EN/Chapter.1.108.html",
+        "https://www.faronics.com/document-library/document/deep-freeze-msi-packager"
+      ]
+    },
+    {
+      "id": "faronics-deploy",
+      "name": "Faronics Deploy",
+      "artifacts": {
+        "processes": [
+          "FaronicsDeployAgent.exe",
+          "FWAService.exe",
+          "FWA_UI_Agent.exe",
+          "FRCServer.exe",
+          "FaronicsSA.exe",
+          "FSSInstaller.exe",
+          "NotificationHelper.exe",
+          "ModulesUpgradeMgr.exe",
+          "UserNotificationHelper.exe",
+          "MigrationHelper_32.exe",
+          "MigrationHelper_64.exe",
+          "FWAWebInstaller_*.exe",
+          "CloudWksInstall.exe"
+        ],
+        "services": [
+          "FWASvc"
+        ],
+        "uninstall_key_names": [
+          "{581F69E6-A5D1-48C7-9F6F-CC333007F7EB}"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\Faronics\\Faronics Deploy Agent\\*",
+          "C:\\Program Files (x86)\\Faronics\\Faronics Deploy Agent\\FaronicsDeployAgent.exe",
+          "C:\\Program Files (x86)\\Faronics\\Faronics Deploy Agent\\FWAService.exe",
+          "C:\\Program Files (x86)\\Faronics\\Faronics Deploy Agent\\FWA_UI_Agent.exe",
+          "C:\\Program Files (x86)\\Faronics\\Faronics Deploy Agent\\FRCServer.exe",
+          "C:\\Program Files (x86)\\Faronics\\Faronics Deploy Agent\\FaronicsSA.exe",
+          "C:\\Program Files (x86)\\Faronics\\Faronics Deploy Agent\\FSSInstaller.exe",
+          "C:\\Program Files (x86)\\Faronics\\Faronics Deploy Agent\\ModulesUpgradeMgr.exe",
+          "C:\\Program Files (x86)\\Faronics\\Faronics Deploy Agent\\NotificationHelper.exe",
+          "C:\\Program Files (x86)\\Faronics\\Faronics Deploy Agent\\UserNotificationHelper.exe",
+          "C:\\Program Files (x86)\\Faronics\\Faronics Deploy Agent\\MigrationHelper_32.exe",
+          "C:\\Program Files (x86)\\Faronics\\Faronics Deploy Agent\\MigrationHelper_64.exe"
+        ]
+      },
+      "references": [
+        "https://www.faronics.com/products/deploy",
+        "https://docs.faronics.com/faronicsdeploy",
+        "https://docs.faronics.com/faronicsdeploy/get-started-1/quick-start/pre-requisites/install-deploy-agents/windows-install-guide",
+        "https://support.faronics.com/help/en-ca/6-faronics-deploy/77-what-port-numbers-and-host-names-are-used-by-faronics-deploy"
+      ]
+    },
+    {
+      "id": "faronics-insight",
+      "name": "Faronics Insight",
+      "artifacts": {
+        "processes": [
+          "FIStudentSvc.exe",
+          "FIStudentAgent.exe",
+          "FIStudentUI.exe",
+          "STAHelper.exe",
+          "StudentSvc.exe",
+          "InsightInstaller.exe",
+          "InsightInstallerStudent.exe",
+          "InsightInstallerTeacher.exe"
+        ],
+        "services": [
+          "FIStudentSvc"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Faronics\\Insight Student\\*",
+          "C:\\Program Files\\Faronics\\Insight Teacher\\*",
+          "C:\\Program Files (x86)\\Faronics\\Insight Student\\*",
+          "C:\\Program Files (x86)\\Faronics\\Insight Teacher\\*",
+          "*\\Faronics\\Insight Student\\STAHelper.exe",
+          "*\\Faronics\\Insight Teacher\\STAHelper.exe",
+          "*\\Faronics\\Insight Student\\FIStudentSvc.exe",
+          "*\\Faronics\\Insight Student\\FIStudentAgent.exe",
+          "*\\Faronics\\Insight Student\\FIStudentUI.exe",
+          "C:\\Program Files\\Faronics\\Insight Student\\",
+          "C:\\Program Files\\Faronics\\Insight Teacher\\"
+        ]
+      },
+      "references": [
+        "https://www.faronics.com/products/insight",
+        "https://docs.faronics.com/faronics-insight-docs",
+        "https://docs.faronics.com/faronics-insight-docs/installation-and-administration/installation/installing-on-windows/installing-the-insight-student",
+        "https://docs.faronics.com/faronics-insight-docs/installation-and-administration/installation/installing-on-windows/installing-the-insight-student/command-line-installation"
+      ]
+    },
+    {
+      "id": "fastviewer",
+      "name": "FastViewer",
+      "artifacts": {
+        "processes": [
+          "fastclient.exe",
+          "fastmaster.exe",
+          "FastViewer.exe"
+        ]
+      },
+      "references": [
+        "https://www.matrix42.com/en/fastviewer",
+        "https://fastviewer.com/demo/EN_FastViewer_Server%20Installation%20Configuration.pdf"
+      ]
+    },
+    {
+      "id": "fixme-it",
+      "name": "FixMe.it",
+      "artifacts": {
+        "processes": [
+          "TiExpertStandalone.exe",
+          "FixMeitClient*.exe",
+          "TiExpertCore.exe",
+          "fixmeitclient.exe",
+          "TiClientCore.exe",
+          "TiClientHelper*.exe"
+        ]
+      },
+      "references": [
+        "https://fixme.it/",
+        "https://docs.fixme.it/general-questions/which-ports-and-servers-does-fixme-it-use"
+      ]
+    },
+    {
+      "id": "fleetdeck-io",
+      "name": "FleetDeck.io",
+      "artifacts": {
+        "processes": [
+          "fleetdeck-agent.exe",
+          "fleetdeck_agent_svc.exe",
+          "fleetdeck_agent.exe",
+          "fleetdeck_commander_svc.exe",
+          "fleetdeck_installer.exe",
+          "fleetdeck_commander_launcher.exe"
+        ],
+        "services": [
+          "FleetDeck Agent Service"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\FleetDeck Agent\\fleetdeck_agent_svc.exe",
+          "C:\\Program Files (x86)\\FleetDeck Agent\\*\\fleetdeck_agent.exe",
+          "C:\\Program Files (x86)\\FleetDeck Agent\\*\\fd_agent.dll",
+          "C:\\Windows\\Temp\\FleetDeck\\*",
+          "C:\\Program Files (x86)\\FleetDeck Agent\\",
+          "C:\\Program Files (x86)\\FleetDeck Agent\\*\\",
+          "C:\\Windows\\Temp\\FleetDeck\\"
+        ]
+      },
+      "references": [
+        "https://fleetdeck.io/",
+        "https://github.com/magicsword-io/LOLRMM/issues/112",
+        "https://fleetdeck.io/faq/"
+      ]
+    },
+    {
+      "id": "free-tools-launcher",
+      "name": "Free Tools Launcher",
+      "artifacts": {
+        "install_paths": [
+          "C:\\Program Files\\ManageEngine\\ManageEngine Free Tools\\Launcher\\*",
+          "*\\ManageEngine\\*"
+        ]
+      },
+      "references": [
+        "https://www.manageengine.com/free-tools.html"
+      ]
+    },
+    {
+      "id": "freshservice",
+      "name": "Freshservice",
+      "artifacts": {
+        "processes": [
+          "FSAgentService.exe",
+          "FSAgentAutoUpdate.exe",
+          "FSAgentCrashStatusUpdater.exe",
+          "FSWmiScanner.exe",
+          "Freshservice.DiscoveryProbe.Window.exe",
+          "Freshservice.DiscoveryProbe.ScanService.exe",
+          "Freshservice.DiscoveryProbe.AutoFlush.exe",
+          "Freshservice.DiscoveryProbe.OIDLibraryPuller.exe",
+          "Freshservice.DiscoveryProbe.ProgressBar.exe",
+          "AutoUpdate.exe",
+          "FSProbeReporter.exe",
+          "FSProbeCrashStatusUpdater.exe",
+          "FSScheduler.exe",
+          "IPRangeCalculator.exe",
+          "UninstallStatusUpdater.exe",
+          "plink.exe"
+        ],
+        "services": [
+          "FSAgentService",
+          "FreshServiceScan"
+        ],
+        "uninstall_key_names": [
+          "{8BE075F9-36C7-4145-8BC0-35D420223576}",
+          "{892D2C60-AFC1-48C0-8C5D-A2DC856A3605}"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\Freshdesk\\Freshservice Discovery Agent\\*",
+          "C:\\Program Files (x86)\\Freshdesk\\Freshservice Discovery Agent\\bin\\*",
+          "C:\\Program Files (x86)\\Freshdesk\\Freshservice Discovery Agent\\conf\\*",
+          "C:\\Program Files (x86)\\Freshworks\\FreshServiceProbe\\*",
+          "C:\\Program Files (x86)\\Freshworks\\FreshServiceProbe\\bin\\*",
+          "C:\\Program Files (x86)\\Freshworks\\FreshServiceProbe\\conf\\*",
+          "C:\\Program Files (x86)\\Freshworks\\FreshServiceProbe\\db\\*",
+          "C:\\Program Files (x86)\\Freshworks\\FreshServiceProbe\\nmap\\*",
+          "C:\\Program Files (x86)\\Freshworks\\FreshServiceProbe\\tools\\ssh\\*",
+          "C:\\Program Files (x86)\\Freshworks\\FreshServiceProbe\\bin\\Freshservice.DiscoveryProbe.ScanService.exe",
+          "C:\\Program Files (x86)\\Freshworks\\FreshServiceProbe\\bin\\Freshservice.DiscoveryProbe.Window.exe",
+          "C:\\Program Files (x86)\\Freshworks\\FreshServiceProbe\\bin\\plink.exe"
+        ]
+      },
+      "references": [
+        "https://www.freshworks.com/freshservice/",
+        "https://support.freshservice.com/support/solutions/articles/200393-freshservice-discovery-agent",
+        "https://support.freshservice.com/support/solutions/articles/223635-installing-discovery-agent-windows-",
+        "https://support.freshservice.com/support/solutions/articles/199849-installing-discovery-agent-win-in-a-domain-using-gpo-"
+      ]
+    },
+    {
+      "id": "gatherplace-desktop-sharing",
+      "name": "GatherPlace-desktop sharing",
+      "artifacts": {
+        "processes": [
+          "gp3.exe",
+          "gp4.exe",
+          "gp5.exe"
+        ]
+      },
+      "references": [
+        "https://web.archive.org/web/20241106023713/https://www.gatherplace.com/",
+        "https://www.gatherplace.com/kb?id=136377"
+      ]
+    },
+    {
+      "id": "getscreen",
+      "name": "GetScreen",
+      "artifacts": {
+        "processes": [
+          "getscreen.exe",
+          "getscreen-x86.exe",
+          "getscreen.upd.exe"
+        ],
+        "services": [
+          "Getscreen.me",
+          "GetscreenSV"
+        ],
+        "install_paths": [
+          "C:\\ProgramData\\Getscreen.me\\",
+          "C:\\Users\\*\\AppData\\Local\\Getscreen.me\\",
+          "C:\\Program Files\\Getscreen.me\\",
+          "C:\\Users\\*\\Downloads\\getscreen-x86.exe",
+          "C:\\Users\\*\\Downloads\\getscreen.upd.exe",
+          "C:\\Users\\*\\AppData\\Local\\"
+        ]
+      },
+      "references": [
+        "https://getscreen.me/",
+        "https://docs.getscreen.me/self-hosted/system-requirements/",
+        "https://sagalabs.dk/blog/getscreen-yet-another-rmm"
+      ]
+    },
+    {
+      "id": "glpi-agent",
+      "name": "GLPI Agent",
+      "artifacts": {
+        "processes": [
+          "perl.exe",
+          "wperl.exe"
+        ],
+        "services": [
+          "glpi-agent"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\GLPI-Agent\\*",
+          "C:\\Program Files\\GLPI-Agent\\perl\\bin\\*",
+          "C:\\Program Files\\GLPI-Agent\\etc\\*",
+          "C:\\Program Files\\GLPI-Agent\\var\\*",
+          "C:\\Program Files\\GLPI-Agent\\logs\\*",
+          "C:\\Program Files\\GLPI-Agent\\perl\\bin\\",
+          "C:\\Program Files\\GLPI-Agent\\etc\\",
+          "C:\\Program Files\\GLPI-Agent\\logs\\",
+          "C:\\Program Files\\GLPI-Agent\\var\\"
+        ]
+      },
+      "references": [
+        "https://glpi-project.org/",
+        "https://github.com/glpi-project/glpi-agent",
+        "https://glpi-agent.readthedocs.io/en/latest/",
+        "https://glpi-agent.readthedocs.io/en/latest/installation/index.html"
+      ]
+    },
+    {
+      "id": "go-mini-rmm",
+      "name": "Go Mini RMM",
+      "artifacts": {
+        "scheduled_tasks": [
+          "RMM-Agent"
+        ],
+        "install_paths": [
+          "C:\\rmm\\"
+        ]
+      },
+      "references": [
+        "https://github.com/cevrimxe/go-mini-rmm",
+        "https://github.com/cevrimxe/go-mini-rmm/blob/9b24b1749b5dac0a14bee4ce026181cec0843a08/README.md",
+        "https://github.com/cevrimxe/go-mini-rmm/blob/9b24b1749b5dac0a14bee4ce026181cec0843a08/web/templates/install.ps1",
+        "https://github.com/cevrimxe/go-mini-rmm/blob/9b24b1749b5dac0a14bee4ce026181cec0843a08/web/templates/install.sh"
+      ]
+    },
+    {
+      "id": "gorelo-rmm",
+      "name": "Gorelo RMM",
+      "artifacts": {
+        "processes": [
+          "Gorelo.Rmm.Setup.exe",
+          "Gorelo.RemoteManagement.Agent.exe",
+          "Gorelo.RemoteManagement.Shell.exe",
+          "Gorelo.Rmm.Installer.Handler.exe",
+          "Gorelo.Rmm.Installer.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Gorelo\\Agent\\Plugins\\Downloads\\",
+          "C:\\Program Files\\Gorelo\\Agent\\RMMAgent\\Gorelo.RemoteManagement.Agent\\",
+          "C:\\Program Files\\Gorelo\\Agent\\Shell\\Gorelo.RemoteManagement.Shell\\",
+          "C:\\Program Files\\Gorelo\\Installer\\Downloads\\",
+          "C:\\Program Files\\Gorelo\\Installer\\Gorelo.Rmm.Installer.Handler\\",
+          "C:\\Program Files\\Gorelo\\Installer\\Gorelo.Rmm.Installer\\",
+          "C:\\Program Files\\Gorelo\\LogFiles\\Agent\\",
+          "C:\\Program Files\\Gorelo\\LogFiles\\Installer\\",
+          "C:\\Program Files\\Gorelo\\LogFiles\\InstallerHandler\\",
+          "C:\\Program Files\\Gorelo\\LogFiles\\Shell\\"
+        ]
+      },
+      "references": [
+        "https://www.gorelo.io/remote-management/",
+        "https://github.com/magicsword-io/LOLRMM/issues/117",
+        "https://www.linkedin.com/posts/magicswordio_new-to-lolrmmio-gorelormm-gorelormm-activity-7394482892422393856-BtKl/",
+        "https://app.any.run/tasks/8b12557e-8c76-41e8-a3c7-e491f32a0b11"
+      ]
+    },
+    {
+      "id": "goto-opener",
+      "name": "GoTo Opener",
+      "artifacts": {
+        "install_paths": [
+          "C:\\Program Files (x86)\\GoTo Opener",
+          "*\\GoTo Opener"
+        ]
+      },
+      "references": [
+        "https://support.goto.com/meeting/help/about-the-goto-opener"
+      ]
+    },
+    {
+      "id": "gotoassist",
+      "name": "GoToAssist",
+      "artifacts": {
+        "processes": [
+          "gotoassist.exe",
+          "g2a*.exe",
+          "g2mcomm.exe",
+          "g2ax_comm_customer.exe"
+        ]
+      },
+      "references": [
+        "https://start.gotoassist.com/",
+        "https://help.gotoassist.com/remote-support/help/what-should-i-allow-on-my-firewall-for-gotoassist-remote-support-v5"
+      ]
+    },
+    {
+      "id": "gotoassist-agent-desktop-console",
+      "name": "GoToAssist Agent Desktop Console",
+      "artifacts": {
+        "install_paths": [
+          "C:\\*\\G2RDesktopConsole-x64.msi",
+          "*\\G2RDesktopConsole-x64.msi"
+        ]
+      },
+      "references": [
+        "https://console.gotoassist.com/"
+      ]
+    },
+    {
+      "id": "gotoassist-goto-resolve",
+      "name": "GoToAssist (GoTo Resolve)",
+      "artifacts": {
+        "processes": [
+          "GoToResolveExternalModuleHandler.exe",
+          "GoToResolveFileManager.exe",
+          "GoToResolveLoggerProcess.exe",
+          "GoToResolveNetworkChecker.exe",
+          "GoToResolveProcessChecker.exe",
+          "GoToResolveQuickView.exe",
+          "GoToResolveRegistryEditor.exe",
+          "GoToResolveRemoteControl.exe",
+          "GoToResolveService.exe",
+          "GoToResolveServiceManager.exe",
+          "GoToResolveTerminal.exe",
+          "GoToResolveTools32.exe",
+          "GoToResolveTools64.exe",
+          "GoToResolveUi.exe",
+          "GoToResolveUnattended.exe",
+          "GoToResolveUnattendedRemover.exe"
+        ],
+        "services": [
+          "GoToResolve_*"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\GoTo Resolve Unattended\\*",
+          "C:\\Program Files\\GoTo Resolve Unattended\\*"
+        ]
+      },
+      "references": [
+        "https://www.logmein.com/products/resolve",
+        "https://asec.ahnlab.com/en/90968/"
+      ]
+    },
+    {
+      "id": "gotohttp",
+      "name": "GotoHTTP",
+      "artifacts": {
+        "processes": [
+          "GotoHTTP_x64.exe",
+          "gotohttp.exe",
+          "GotoHTTP*.exe"
+        ]
+      },
+      "references": [
+        "https://gotohttp.com/",
+        "https://gotohttp.com/goto/help.12x"
+      ]
+    },
+    {
+      "id": "gotomypc",
+      "name": "GoToMyPC",
+      "artifacts": {
+        "processes": [
+          "AppCore.exe",
+          "g2comm.exe",
+          "g2file*.exe",
+          "g2fileh.exe",
+          "g2host.exe",
+          "g2m_download.exe",
+          "g2mainh.exe",
+          "G2MChat.exe",
+          "G2M.exe",
+          "G2MCodecInstExtractor.exe",
+          "G2MComm.exe",
+          "G2MCoreInstExtractor.exe",
+          "G2MFeedback.exe",
+          "G2MInstaller.exe",
+          "G2MInstallerExtractor.exe",
+          "G2MInstHigh.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\GoToMyPC\\*",
+          "%APPDATA%\\GoToMeeting\\G2M.exe",
+          "%AppData%\\GoTo\\Logs\\",
+          "%APPDATA%\\GoToMeeting\\"
+        ]
+      },
+      "references": [
+        "https://get.gotomypc.com/",
+        "https://support.logmeininc.com/gotomypc/help/what-are-the-optimal-firewall-configurations#",
+        "https://support.goto.com/training/help/how-do-i-configure-gototraining-to-work-with-firewalls",
+        "https://ruler-project.github.io/ruler-project/RULER/remote/Citrix%20GoToMyPC/"
+      ]
+    },
+    {
+      "id": "goverlan",
+      "name": "Goverlan",
+      "artifacts": {
+        "processes": [
+          "goverrmc.exe",
+          "govsrv*.exe",
+          "GovAgentInstallHelper.exe",
+          "GovAgentx64.exe",
+          "GovReachClient.exe",
+          "GovSrv.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\PJ Technologies\\GOVsrv\\*",
+          "*\\PJ Technologies\\GOVsrv\\*",
+          "*\\GovSrv.exe"
+        ]
+      },
+      "references": [
+        "https://www.goverlan.com/pdf/Goverlan-Remote-Control-Software.pdf"
+      ]
+    },
+    {
+      "id": "gxm-rmm-agent",
+      "name": "GxM RMM Agent",
+      "artifacts": {
+        "processes": [
+          "GxM.Agent.exe"
+        ],
+        "services": [
+          "GxMAgent"
+        ],
+        "install_paths": [
+          "*\\ProgramData\\GxM\\agent\\GxM.Agent.exe",
+          "*\\ProgramData\\GxM\\enrollment.json",
+          "*\\ProgramData\\GxM\\install.log",
+          "C:\\GxM\\agent",
+          "*\\ProgramData\\GxM\\agent\\",
+          "*\\ProgramData\\GxM\\"
+        ]
+      },
+      "references": []
+    },
+    {
+      "id": "heartbeatrm",
+      "name": "HeartbeatRM",
+      "artifacts": {
+        "processes": [
+          "agent-installer-any.exe",
+          "hbrm-x64.exe",
+          "hbrm-updater-x64.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\HeartbeatRM\\*",
+          "C:\\Program Files\\HeartbeatRM\\*",
+          "*\\HeartbeatRM\\*",
+          "C:\\Program Files (x86)\\HeartbeatRM\\",
+          "C:\\Program Files\\HeartbeatRM\\",
+          "*\\"
+        ]
+      },
+      "references": [
+        "https://heartbeatrm.com/",
+        "https://github.com/magicsword-io/LOLRMM/issues/136"
+      ]
+    },
+    {
+      "id": "helpbeam",
+      "name": "HelpBeam",
+      "artifacts": {
+        "processes": [
+          "helpbeam*.exe"
+        ]
+      },
+      "references": [
+        "https://web.archive.org/web/20141223111635/http://www.helpbeam.com/",
+        "https://www.helpbeam.com domain for sale in 2024"
+      ]
+    },
+    {
+      "id": "helpu",
+      "name": "HelpU",
+      "artifacts": {
+        "processes": [
+          "helpu_install.exe",
+          "HelpuUpdater.exe",
+          "HelpuManager.exe"
+        ]
+      },
+      "references": [
+        "https://helpu.co.kr/"
+      ]
+    },
+    {
+      "id": "helpwire",
+      "name": "HelpWire",
+      "artifacts": {
+        "processes": [
+          "HelpWire Quick.exe",
+          "helpwire.exe"
+        ],
+        "services": [
+          "helpwire-unattended"
+        ]
+      },
+      "references": [
+        "https://www.helpwire.app/",
+        "https://www.helpwire.app/download/windows/",
+        "https://www.helpwire.app/download/windows/thank-you/",
+        "https://www.helpwire.app/download/macos/thank-you/"
+      ]
+    },
+    {
+      "id": "hoptodesk",
+      "name": "HopToDesk",
+      "artifacts": {
+        "processes": [
+          "HopToDesk.exe",
+          "HopToDesk-Standalone.exe",
+          "privacyhelper.exe"
+        ],
+        "uninstall_key_names": [
+          "HopToDesk"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\HopToDesk\\HopToDesk.exe",
+          "C:\\Program Files (x86)\\HopToDesk\\",
+          "C:\\Users\\*\\AppData\\Local\\Temp\\",
+          "C:\\Users\\*\\AppData\\Roaming\\HopToDesk\\config\\"
+        ]
+      },
+      "references": [
+        "https://www.hoptodesk.com/",
+        "https://www.hoptodesk.com/#faqlink",
+        "https://gitlab.com/hoptodesk/hoptodesk",
+        "https://github.com/magicsword-io/LOLRMM/issues/92"
+      ]
+    },
+    {
+      "id": "i-m-intouch",
+      "name": "I'm InTouch",
+      "artifacts": {
+        "processes": [
+          "iit.exe",
+          "intouch.exe"
+        ]
+      },
+      "references": [
+        "https://locator.01com.com/",
+        "https://www.01com.com/mobile/imintouch-remote-pc-desktop/faqs/remote-access/"
+      ]
+    },
+    {
+      "id": "immybot",
+      "name": "ImmyBot",
+      "artifacts": {
+        "processes": [
+          "ImmyAgent.exe",
+          "ImmyUpdater.exe",
+          "ImmyBot.Agent.Ephemeral.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\ImmyBot\\ImmyAgent.exe",
+          "C:\\Program Files\\ImmyBot\\ImmyUpdater.exe",
+          "C:\\Program Files (x86)\\ImmyBot\\ImmyAgent.exe",
+          "C:\\Program Files (x86)\\ImmyBot\\ImmyUpdater.exe",
+          "*\\ImmyBot\\*",
+          "C:\\Windows\\Temp\\ImmyBot\\*",
+          "C:\\Program Files\\ImmyBot\\",
+          "C:\\Program Files (x86)\\ImmyBot\\",
+          "C:\\ProgramData\\ImmyBot\\Logs\\",
+          "C:\\ProgramData\\ImmyBot\\Scripts\\",
+          "C:\\ProgramData\\ImmyBotAgentService\\",
+          "C:\\Windows\\Temp\\ImmyBot\\"
+        ]
+      },
+      "references": [
+        "https://www.immy.bot/",
+        "https://github.com/magicsword-io/LOLRMM/issues/135",
+        "https://docs.immy.bot/Documentation/HowToGuides/agent-installation",
+        "https://docs.immy.bot/Documentation/Troubleshooting/security-software.html"
+      ]
+    },
+    {
+      "id": "impero-connect",
+      "name": "Impero Connect",
+      "artifacts": {
+        "processes": [
+          "ImperoClientSVC.exe"
+        ]
+      },
+      "references": []
+    },
+    {
+      "id": "instant-housecall",
+      "name": "Instant Housecall",
+      "artifacts": {
+        "processes": [
+          "hsloader.exe",
+          "InstantHousecall.exe",
+          "ihcserver.exe"
+        ]
+      },
+      "references": [
+        "https://instanthousecall.com/",
+        "https://instanthousecall.com/features/"
+      ]
+    },
+    {
+      "id": "intelliadmin-remote-control",
+      "name": "IntelliAdmin Remote Control",
+      "artifacts": {
+        "processes": [
+          "iadmin.exe",
+          "intelliadmin.exe",
+          "agent32.exe",
+          "agent64.exe",
+          "agent_setup_5.exe"
+        ]
+      },
+      "references": [
+        "http://www.intelliadmin.com/index.php/remote-control/"
+      ]
+    },
+    {
+      "id": "invgate",
+      "name": "InvGate",
+      "artifacts": {
+        "processes": [
+          "InvGate-ED.exe",
+          "InvGateAssetsRD.exe",
+          "InvGateRD.exe",
+          "DepHlp.exe",
+          "ARPPRODUCTICON.exe"
+        ],
+        "services": [
+          "InvClient"
+        ],
+        "uninstall_key_names": [
+          "{41F5BB80-6416-4AF4-B67B-FA36C29DB4C4}",
+          "{F0076285-D0E2-4B49-92BD-25E0B7B27DF6}"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\Inventec\\InvGate.net Client\\*",
+          "C:\\Program Files (x86)\\Inventec\\InvGate.net Client\\InvGate-ED.exe",
+          "C:\\Program Files (x86)\\Inventec\\InvGate.net Client\\DepHlp.exe",
+          "C:\\Program Files (x86)\\Inventec\\InvGate.net Client\\files\\InvGateAssetsRD.exe",
+          "C:\\Program Files (x86)\\Inventec\\InvGate.net Client\\files\\InvGateRD.exe",
+          "C:\\Program Files (x86)\\Inventec\\InvGate.net Client\\files\\sas.dll",
+          "C:\\Program Files (x86)\\Inventec\\InvGate.net Client\\Software Matt.dll",
+          "C:\\Program Files (x86)\\Inventec\\InvGate.net Client\\",
+          "C:\\Program Files (x86)\\Inventec\\InvGate.net Client\\files\\",
+          "C:\\Program Files (x86)\\Inventec\\InvGate.net Client\\logs\\",
+          "C:\\Program Files (x86)\\Inventec\\InvGate.net Client\\usbFiles\\",
+          "C:\\Windows\\Installer\\{41F5BB80-6416-4AF4-B67B-FA36C29DB4C4}\\"
+        ]
+      },
+      "references": [
+        "https://invgate.com/",
+        "https://invgate.com/asset-management",
+        "https://invgate.com/asset-management/remote-management",
+        "https://invgate.com/asset-management/software-deployment"
+      ]
+    },
+    {
+      "id": "iperius-remote",
+      "name": "Iperius Remote",
+      "artifacts": {
+        "processes": [
+          "iperius.exe",
+          "iperiusremote.exe"
+        ]
+      },
+      "references": [
+        "https://www.iperiusremote.com/",
+        "https://www.iperiusremote.com/download-iperius-remote-desktop-windows.aspx"
+      ]
+    },
+    {
+      "id": "isl-light",
+      "name": "ISL Light",
+      "artifacts": {
+        "processes": [
+          "islalwaysonmonitor.exe",
+          "isllight.exe",
+          "isllightservice.exe"
+        ]
+      },
+      "references": [
+        "https://www.islonline.com/downloads/isl-light.htm"
+      ]
+    },
+    {
+      "id": "isl-online",
+      "name": "ISL Online",
+      "artifacts": {
+        "processes": [
+          "islalwaysonmonitor.exe",
+          "isllight.exe",
+          "isllightservice.exe",
+          "ISLLightClient.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\ISL Online\\ISL Light*",
+          "*\\ISL Online\\ISL Light*",
+          "*\\ISLLight.exe"
+        ]
+      },
+      "references": [
+        "https://www.islonline.com/",
+        "https://help.islonline.com/19818/165940"
+      ]
+    },
+    {
+      "id": "it-agent",
+      "name": "IT Agent",
+      "artifacts": {
+        "processes": [
+          "ITAgentRMMSender.exe",
+          "ITAgentRMMSenderSL.exe",
+          "ITAgentRMMSenderUpdater.exe"
+        ]
+      },
+      "references": [
+        "https://www.itagent.com/it-agent-remote-access",
+        "https://www.itagent.com/remote-desktop-access",
+        "https://www.duetdisplay.com/remote-desktop-access-software"
+      ]
+    },
+    {
+      "id": "itarian",
+      "name": "Itarian",
+      "artifacts": {
+        "processes": [
+          "ITSMAgent.exe",
+          "RViewer.exe",
+          "ItsmRsp.exe",
+          "RAccess.exe",
+          "RmmService.exe",
+          "ITarianRemoteAccessSetup.exe",
+          "RDesktop.exe",
+          "ComodoRemoteControl.exe",
+          "ITSMService.exe",
+          "RHost.exe"
+        ]
+      },
+      "references": [
+        "https://www.itarian.com/rmm/",
+        "https://help.itarian.com/topic-459-1-1005-14776-Appendix-1b---Endpoint-Manager-Services---IP-Nos,-Host-Names-and-Port-Details---US-Customers.html"
+      ]
+    },
+    {
+      "id": "itsupport247-connectwise",
+      "name": "ITSupport247 (ConnectWise)",
+      "artifacts": {
+        "processes": [
+          "saazapsc.exe"
+        ]
+      },
+      "references": [
+        "https://control.itsupport247.net/"
+      ]
+    },
+    {
+      "id": "ivanti-remote-control",
+      "name": "Ivanti Remote Control",
+      "artifacts": {
+        "processes": [
+          "IvantiRemoteControl.exe",
+          "ArcUI.exe",
+          "AgentlessRC.exe"
+        ]
+      },
+      "references": [
+        "https://www.ivanti.com/use-cases/remote-control-all-of-my-devices-worldwide",
+        "https://rc1.ivanticloud.com/"
+      ]
+    },
+    {
+      "id": "jump-cloud",
+      "name": "Jump Cloud",
+      "artifacts": {
+        "processes": [
+          "JumpCloud*.exe"
+        ]
+      },
+      "references": [
+        "https://jumpcloud.com/platform/remote-assistance",
+        "https://jumpcloud.com/support/understand-remote-assist-agent"
+      ]
+    },
+    {
+      "id": "jump-desktop",
+      "name": "Jump Desktop",
+      "artifacts": {
+        "processes": [
+          "jumpclient.exe",
+          "jumpdesktop.exe",
+          "jumpservice.exe",
+          "jumpconnect.exe",
+          "jumpupdater.exe"
+        ]
+      },
+      "references": [
+        "https://jumpdesktop.com/",
+        "https://support.jumpdesktop.com/hc/en-us/articles/360042490351-Administrators-Guide-For-Jump-Desktop-Connect"
+      ]
+    },
+    {
+      "id": "kabuto",
+      "name": "Kabuto",
+      "artifacts": {
+        "processes": [
+          "Kabuto.App.Runner.exe"
+        ]
+      },
+      "references": [
+        "https://www.repairtechsolutions.com/documentation/kabuto/"
+      ]
+    },
+    {
+      "id": "kaseya-vsa",
+      "name": "Kaseya (VSA)",
+      "artifacts": {
+        "processes": [
+          "agentmon.exe",
+          "KaUpdHlp.exe",
+          "KaUsrTsk.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\Kaseya\\",
+          "C:\\ProgramData\\Kaseya\\",
+          "%localappdata%\\Kaseya\\Log\\KaseyaLiveConnect\\",
+          "C:\\ProgramData\\Kaseya\\Log\\Endpoint\\",
+          "C:\\Program Files*\\Kaseya\\*\\",
+          "C:\\Users\\*\\AppData\\Local\\Temp\\",
+          "C:\\Windows\\Temp\\",
+          "C:\\ProgramData\\Kaseya\\Log\\KaseyaEdgeServices\\",
+          "C:\\Kaseya\\api\\v1.0\\logs\\",
+          "C:\\Kaseya\\api\\v1.5\\endpoint\\",
+          "C:\\Kaseya\\api\\v1.5\\endpoints\\",
+          "C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Kaseya\\Log\\MakeSelfSignedCert.exe\\"
+        ]
+      },
+      "references": [
+        "https://www.kaseya.com/",
+        "https://helpdesk.kaseya.com/hc/en-gb/articles/229012608-Software-Deployment-URL-Port-Requirements",
+        "https://helpdesk.kaseya.com/hc/en-gb/articles/229009708-Live-Connect-Log-File-Locations",
+        "https://ruler-project.github.io/ruler-project/RULER/remote/Kaseya/"
+      ]
+    },
+    {
+      "id": "khelpdesk",
+      "name": "KHelpDesk",
+      "artifacts": {
+        "processes": [
+          "KHelpDesk.exe"
+        ]
+      },
+      "references": [
+        "https://www.khelpdesk.com.br/",
+        "https://www.khelpdesk.com.br/en-us"
+      ]
+    },
+    {
+      "id": "komari",
+      "name": "Komari",
+      "artifacts": {
+        "processes": [
+          "komari.exe",
+          "komari-agent.exe",
+          "nssm.exe"
+        ],
+        "services": [
+          "komari-agent",
+          "Windows Update Service"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Komari\\*",
+          "C:\\komari\\*",
+          "C:\\Program Files\\Komari\\",
+          "C:\\komari\\"
+        ]
+      },
+      "references": [
+        "https://github.com/komari-monitor/komari",
+        "https://www.huntress.com/blog/komari-c2-agent-abuse",
+        "https://github.com/komari-monitor/komari-agent",
+        "https://raw.githubusercontent.com/komari-monitor/komari/main/install-komari.sh"
+      ]
+    },
+    {
+      "id": "labteach-connectwise-automate",
+      "name": "LabTeach (Connectwise Automate)",
+      "artifacts": {
+        "processes": [
+          "ltsvc.exe"
+        ]
+      },
+      "references": [
+        "https://www.connectwise.com/platform/automate"
+      ]
+    },
+    {
+      "id": "labtech-rmm-now-connectwise-automate",
+      "name": "LabTech RMM (Now ConnectWise Automate)",
+      "artifacts": {
+        "processes": [
+          "ltsvc.exe",
+          "ltsvcmon.exe",
+          "lttray.exe"
+        ]
+      },
+      "references": [
+        "https://www.connectwise.com/platform/automate"
+      ]
+    },
+    {
+      "id": "landesk",
+      "name": "LANDesk",
+      "artifacts": {
+        "processes": [
+          "issuser.exe",
+          "landeskagentbootstrap.exe",
+          "LANDeskPortalManager.exe",
+          "ldinv32.exe",
+          "ldsensors.exe",
+          "softmon.exe",
+          "tmcsvc.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\LANDesk\\*",
+          "*\\LANDesk\\*",
+          "*\\issuser.exe",
+          "*\\softmon.exe",
+          "*\\tmcsvc.exe"
+        ]
+      },
+      "references": [
+        "https://www.landesk.com/",
+        "https://forums.ivanti.com/s/article/URL-exception-list-for-Ivanti-Security-Controls?language=en_US"
+      ]
+    },
+    {
+      "id": "laplink-everywhere",
+      "name": "Laplink Everywhere",
+      "artifacts": {
+        "processes": [
+          "laplink.exe",
+          "laplink-everywhere-setup*.exe",
+          "laplinkeverywhere.exe",
+          "llrcservice.exe",
+          "serverproxyservice.exe",
+          "OOSysAgent.exe"
+        ]
+      },
+      "references": [
+        "https://everywhere.laplink.com/",
+        "https://everywhere.laplink.com/docs"
+      ]
+    },
+    {
+      "id": "laplink-gold",
+      "name": "Laplink Gold",
+      "artifacts": {
+        "processes": [
+          "tsircusr.exe",
+          "laplink.exe"
+        ]
+      },
+      "references": [
+        "https://web.laplink.com/product/laplink-gold"
+      ]
+    },
+    {
+      "id": "lavawall",
+      "name": "Lavawall",
+      "artifacts": {
+        "processes": [
+          "LavawallWin.exe",
+          "remote-agent.exe",
+          "uihelper.exe"
+        ],
+        "services": [
+          "Lavawall Support Agent",
+          "LavaWallRemoteAgent"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Lavawall\\LavawallWin.exe",
+          "C:\\Program Files (x86)\\Lavawall\\LavawallWin.exe",
+          "C:\\Lavawall\\LavawallWin.exe",
+          "*\\Lavawall\\",
+          "*\\Lavawall\\remote-agent\\",
+          "*\\Lavawall\\Storage\\",
+          "*\\"
+        ]
+      },
+      "references": [
+        "https://lavawall.com/",
+        "https://lavawall.com/rmm/",
+        "https://www.lavawall.com/remote-support/",
+        "https://www.lavawall.com/faq/"
+      ]
+    },
+    {
+      "id": "level",
+      "name": "Level",
+      "artifacts": {
+        "processes": [
+          "level.exe",
+          "level-windows-amd64.exe",
+          "level-remote-control-ffmpeg.exe",
+          "osqueryi.exe"
+        ],
+        "services": [
+          "Level"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Level\\*",
+          "C:\\Program Files\\Level\\"
+        ]
+      },
+      "references": [
+        "https://level.io/",
+        "https://level.io/pricing",
+        "https://www.threathuntinglabs.com/blog/from-seo-poisoning-to-custom-rmm-and-cobalt-strike",
+        "https://dfirtnt.wordpress.com/2023/09/05/rmm-level-io-forensic-artifacts-and-evidence/"
+      ]
+    },
+    {
+      "id": "lightrmmagent",
+      "name": "LightRmmAgent",
+      "artifacts": {
+        "processes": [
+          "LightRmmAgentService.exe"
+        ],
+        "services": [
+          "LightRmmAgent"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\LightRmmAgent\\*",
+          "*\\LightRmmAgent\\",
+          "C:\\ProgramData\\LightRmmAgent\\",
+          "C:\\Windows\\Temp\\"
+        ]
+      },
+      "references": [
+        "https://www.threathuntinglabs.com/blog/from-seo-poisoning-to-custom-rmm-and-cobalt-strike"
+      ]
+    },
+    {
+      "id": "lite-manager",
+      "name": "Lite Manager",
+      "artifacts": {
+        "processes": [
+          "LMNoIpServer.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\LiteManager Pro – Viewer\\*",
+          "*\\LiteManager Pro – Viewer\\*",
+          "*\\LMNoIpServer.exe"
+        ]
+      },
+      "references": [
+        "https://www.litemanager.com/"
+      ]
+    },
+    {
+      "id": "litemanager",
+      "name": "LiteManager",
+      "artifacts": {
+        "processes": [
+          "lmnoipserver.exe",
+          "ROMFUSClient.exe",
+          "romviewer.exe",
+          "romserver.exe"
+        ]
+      },
+      "references": [
+        "https://www.litemanager.com/",
+        "https://www.litemanager.com/articles/LiteManager_remote_access_to_a_desktop_via_the_Internet_or_LAN/"
+      ]
+    },
+    {
+      "id": "logmein",
+      "name": "LogMeIn",
+      "artifacts": {
+        "processes": [
+          "lmiguardiansvc.exe",
+          "lmiignition.exe",
+          "logmeinsystray.exe",
+          "logmein.exe"
+        ]
+      },
+      "references": [
+        "https://www.logmein.com/",
+        "https://support.logmeininc.com/central/help/allowlisting-and-firewall-configuration"
+      ]
+    },
+    {
+      "id": "logmein-rescue",
+      "name": "LogMeIn rescue",
+      "artifacts": {
+        "processes": [
+          "support-logmeinrescue*.exe",
+          "support-logmeinrescue.exe",
+          "lmi_rescue.exe",
+          "lmi_rescue_srv.exe"
+        ],
+        "install_paths": [
+          "C:\\Users\\*\\AppData\\Local\\LogMeIn Rescue Applet\\LMIR*.tmp\\lmi_rescue.exe",
+          "C:\\Users\\*\\AppData\\Local\\LogMeIn Rescue Applet\\LMIR*.tmp\\lmi_rescue_srv.exe"
+        ]
+      },
+      "references": [
+        "https://www.logmein.com/products/rescue",
+        "https://support.logmeinrescue.com/rescue/help/allowlisting-and-rescue"
+      ]
+    },
+    {
+      "id": "ls-rmm",
+      "name": "LS RMM",
+      "artifacts": {
+        "processes": [
+          "LS RMM.exe",
+          "LS RMM Worker.exe",
+          "LS RMM-Update.exe",
+          "SC.exe"
+        ],
+        "services": [
+          "LSRMMWorker"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\LS RMM\\LS RMM.exe",
+          "C:\\Program Files (x86)\\LS RMM\\LS RMM Worker.exe",
+          "*\\LS RMM\\"
+        ]
+      },
+      "references": []
+    },
+    {
+      "id": "lunixar",
+      "name": "Lunixar",
+      "artifacts": {
+        "processes": [
+          "Lunixar.exe",
+          "LunixarRemote.exe",
+          "LunixarUpdater.exe"
+        ],
+        "services": [
+          "LunixarRMM"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Lunixar\\*",
+          "*\\Lunixar\\Lunixar.exe",
+          "*\\Lunixar\\Lunixar.dll",
+          "*\\Lunixar\\Lunixar.Agent.Core.dll",
+          "*\\Lunixar\\LunixarRemote.exe",
+          "*\\Lunixar\\LunixarRemote.dll",
+          "*\\Lunixar\\LunixarUpdater.exe",
+          "*\\Lunixar\\LunixarUpdater.dll",
+          "C:\\Program Files\\Lunixar\\"
+        ]
+      },
+      "references": [
+        "https://lunixar.com/en/",
+        "https://lunixar.com/en/rmm-abuse-prevention/",
+        "https://lunixar.com/en/blog/lunixar-blocks-renaming-agent-installers-to-prevent-abuse/",
+        "https://www.virustotal.com/gui/file/3160414da55882b9f03bae5aa76f0dc3c6cdb9e27e9091d9dac6fa610bd94c33"
+      ]
+    },
+    {
+      "id": "manage-engine-desktop-central",
+      "name": "Manage Engine (Desktop Central)",
+      "artifacts": {
+        "processes": [
+          "dcagentservice.exe",
+          "dcagentregister.exe"
+        ]
+      },
+      "references": [
+        "https://desktopcentral.manageengine.com"
+      ]
+    },
+    {
+      "id": "manageengine",
+      "name": "ManageEngine",
+      "artifacts": {
+        "processes": [
+          "ManageEngine_Remote_Access_Plus.exe",
+          "dcagentservice.exe"
+        ],
+        "install_paths": [
+          "*\\dcagentservice.exe",
+          "C:\\Program Files (x86)\\DesktopCentral_Agent\\bin\\*",
+          "*\\DesktopCentral_Agent\\bin\\*"
+        ]
+      },
+      "references": [
+        "https://www.manageengine.com/"
+      ]
+    },
+    {
+      "id": "manageengine-servicedesk-plus",
+      "name": "ManageEngine ServiceDesk Plus",
+      "artifacts": {
+        "processes": [
+          "ManageEngine_ServiceDesk_Plus.exe"
+        ],
+        "uninstall_key_names": [
+          "{*}"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\ManageEngine\\ServiceDesk\\*",
+          "C:\\Program Files (x86)\\ManageEngine\\ServiceDesk\\*",
+          "C:\\Program Files\\ManageEngine\\ServiceDesk\\",
+          "C:\\Users\\*\\AppData\\Local\\Temp\\{*}\\"
+        ]
+      },
+      "references": [
+        "https://www.manageengine.com/products/service-desk/",
+        "https://github.com/magicsword-io/LOLRMM/issues/50",
+        "https://www.manageengine.com/products/service-desk/download.html",
+        "https://www.virustotal.com/gui/file/177bfdbe81bb4756d1d324ddf1bff4350252f0efd8a7f5c8b60a3a8e882affbd/details"
+      ]
+    },
+    {
+      "id": "meshcentral",
+      "name": "MeshCentral",
+      "artifacts": {
+        "processes": [
+          "MeshAgent.exe",
+          "meshcentral*.exe",
+          "meshagent*.exe"
+        ],
+        "services": [
+          "Mesh Agent background service"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Mesh Agent\\"
+        ]
+      },
+      "references": [
+        "https://meshcentral.com/",
+        "https://ylianst.github.io/MeshCentral/meshcentral/",
+        "https://github.com/Ylianst/MeshAgent"
+      ]
+    },
+    {
+      "id": "mikogo",
+      "name": "Mikogo",
+      "artifacts": {
+        "processes": [
+          "mikogo.exe",
+          "mikogo-starter.exe",
+          "mikogo-service.exe",
+          "mikogolauncher.exe",
+          "Mikogo-Screen-Service.exe"
+        ],
+        "install_paths": [
+          "C:\\Users\\*\\AppData\\Roaming\\Mikogo\\*",
+          "*Users\\*\\AppData\\Roaming\\Mikogo\\*",
+          "*\\Mikogo-Service.exe",
+          "*\\Mikogo-Screen-Service.exe"
+        ]
+      },
+      "references": [
+        "https://mikogo.zendesk.com/hc/en-us/articles/214072478-Which-IP-addresses-do-we-use-for-our-services"
+      ]
+    },
+    {
+      "id": "mini-rmm-agent",
+      "name": "Mini RMM Agent",
+      "artifacts": {
+        "processes": [
+          "MiniRmmAgent.exe"
+        ],
+        "services": [
+          "MiniRmmAgent"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\MiniRMM\\MiniRmmAgent.exe",
+          "C:\\ProgramData\\MiniRMM\\SmartScreenTest.ps1",
+          "C:\\ProgramData\\MiniRMM\\Invoke-AVExclusions.ps1",
+          "C:\\Program Files\\MiniRMM\\",
+          "C:\\ProgramData\\MiniRMM\\"
+        ]
+      },
+      "references": []
+    },
+    {
+      "id": "mionet-also-known-as-wd-anywhere-access",
+      "name": "MioNet (Also known as WD Anywhere Access)",
+      "artifacts": {
+        "processes": [
+          "mionet.exe",
+          "mionetmanager.exe"
+        ]
+      },
+      "references": []
+    },
+    {
+      "id": "mionet-wd-anywhere-access",
+      "name": "MioNet (WD Anywhere Access)",
+      "artifacts": {
+        "processes": [
+          "mionet.exe",
+          "mionetmanager.exe"
+        ]
+      },
+      "references": [
+        "https://en.wikipedia.org/wiki/WD_Anywhere_Access - DOA as of 2016"
+      ]
+    },
+    {
+      "id": "miradore",
+      "name": "Miradore",
+      "artifacts": {
+        "install_paths": [
+          "C:\\Program Files\\Miradore\\OnlineClient\\bin\\*",
+          "*\\Miradore\\*",
+          "C:\\Program Files\\Miradore\\OnlineClient\\bin\\"
+        ]
+      },
+      "references": [
+        "https://www.miradore.com/",
+        "https://github.com/magicsword-io/LOLRMM/issues/118",
+        "https://www.virustotal.com/gui/file/fedf9d82fb1349a5eecf0fad4a9d9eac7e160130e563b9bd3328b5f04891bbd6/details",
+        "https://app.any.run/tasks/5d088796-fb67-45bb-9ee0-369b502522fc"
+      ]
+    },
+    {
+      "id": "monitic",
+      "name": "Monitic",
+      "artifacts": {
+        "processes": [
+          "MoniticInstaller.exe",
+          "amon.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Monitic\\*",
+          "C:\\Program Files\\Monitic\\agent.exe",
+          "C:\\Program Files\\Monitic\\amon.exe",
+          "C:\\Program Files\\Monitic\\conf.json",
+          "C:\\Program Files\\Monitic\\",
+          "%USERPROFILE%\\Desktop\\",
+          "%TEMP%\\*\\",
+          "%CD%\\"
+        ]
+      },
+      "references": [
+        "https://www.monitic.com/",
+        "https://www.monitic.com/en",
+        "https://www.monitic.com/en/why-monitic",
+        "https://www.monitic.com/faq"
+      ]
+    },
+    {
+      "id": "mremote",
+      "name": "Mremote",
+      "artifacts": {
+        "processes": [
+          "mremote-agent.exe"
+        ],
+        "services": [
+          "MremoteAgent"
+        ],
+        "install_paths": [
+          "%APPDATA%\\Mremote\\*",
+          "%ProgramData%\\Mremote\\<deployment-id>\\*",
+          "*\\AppData\\Roaming\\Mremote\\"
+        ]
+      },
+      "references": [
+        "https://egs.ci/mremote.html",
+        "https://egs.ci/"
+      ]
+    },
+    {
+      "id": "msp360",
+      "name": "MSP360",
+      "artifacts": {
+        "processes": [
+          "CBBackupPlan.exe",
+          "Cloud.Backup.Scheduler.exe",
+          "Cloud.Backup.RM.Service.exe",
+          "cbb.exe",
+          "CloudRaService.exe",
+          "CloudRaSd.exe",
+          "CloudRaCmd.exe",
+          "CloudRaUtilities.exe",
+          "Connect.exe",
+          "RMM.Agent.exe"
+        ]
+      },
+      "references": [
+        "https://www.msp360.com/",
+        "https://kb.msp360.com/managed-backup-service/mbs-tcp-ports-configuration#"
+      ]
+    },
+    {
+      "id": "mygreenpc",
+      "name": "MyGreenPC",
+      "artifacts": {
+        "processes": [
+          "mygreenpc.exe"
+        ]
+      },
+      "references": [
+        "https://mygreenpc.com/",
+        "http://www.mygreenpc.com/"
+      ]
+    },
+    {
+      "id": "myivo",
+      "name": "MyIVO",
+      "artifacts": {
+        "processes": [
+          "myivomgr.exe",
+          "myivomanager.exe"
+        ]
+      },
+      "references": [
+        "https://myivo.com"
+      ]
+    },
+    {
+      "id": "n-able-advanced-monitoring-agent",
+      "name": "N-Able Advanced Monitoring Agent",
+      "artifacts": {
+        "processes": [
+          "Agent_*_RW.exe",
+          "BASEClient.exe",
+          "BASupApp.exe",
+          "BASupSrvc.exe",
+          "BASupSrvcCnfg.exe",
+          "BASupTSHelper.exe",
+          "winagent.exe"
+        ]
+      },
+      "references": [
+        "https://www.n-able.com/features/advanced-monitoring-agent",
+        "https://documentation.n-able.com/takecontrol/troubleshooting/Content/kb/Take-Control-Standalone-Ports-and-Domains-Firewall-and-AV-Exclusions.htm"
+      ]
+    },
+    {
+      "id": "n-able-n-central",
+      "name": "N-able N-central",
+      "artifacts": {
+        "processes": [
+          "AgentMaint.exe",
+          "AgentMonitor.exe",
+          "BASupTSHelper.exe",
+          "msp-agent-core.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\N-able Technologies\\Windows Agent\\bin\\*",
+          "C:\\Program Files (x86)\\Msp Agent\\*",
+          "C:\\Program Files (x86)\\N-able Technologies\\Windows Agent\\bin\\agent.exe",
+          "C:\\Program Files (x86)\\N-able Technologies\\Windows Agent\\bin\\",
+          "C:\\Program Files (x86)\\Msp Agent\\"
+        ]
+      },
+      "references": [
+        "https://www.n-able.com/products/n-central",
+        "https://documentation.n-able.com/N-central/userguide/Content/Modern-agent/modern-agent.htm",
+        "https://documentation.n-able.com/N-central/userguide/Content/ReleaseDocs/Install_Config/FirewallRequirements.htm",
+        "https://documentation.n-able.com/N-central/userguide/Content/AVDefender/AVDefender_GlobalExclusions.htm"
+      ]
+    },
+    {
+      "id": "naverisk",
+      "name": "Naverisk",
+      "artifacts": {
+        "processes": [
+          "AgentSetup-*.exe"
+        ]
+      },
+      "references": [
+        "https://www.naverisk.com/",
+        "http://kb.naverisk.com/en/articles/2811223-deploying-naverisk-agents"
+      ]
+    },
+    {
+      "id": "net-monitor-for-employees",
+      "name": "Net Monitor for Employees",
+      "artifacts": {
+        "processes": [
+          "nmep_agtconfig.exe",
+          "nmep_ctrlagent.exe",
+          "nmep_ctrlagentsvc.exe",
+          "winpty-agent.exe",
+          "winpty-agent64.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\Net Monitor for Employees Pro\\*",
+          "C:\\Program Files\\Net Monitor for Employees Pro\\*"
+        ]
+      },
+      "references": [
+        "https://networklookout.com/",
+        "https://www.huntress.com/blog/employee-monitoring-simplehelp-abused-in-ransomware-operations"
+      ]
+    },
+    {
+      "id": "netlock-rmm",
+      "name": "NetLock RMM",
+      "artifacts": {
+        "processes": [
+          "NetLock_RMM_Agent_Installer.exe",
+          "NetLock_RMM_User_Process.exe",
+          "NetLock_RMM_User_UAC.exe"
+        ],
+        "install_paths": [
+          "C:\\ProgramData\\0x101 Cyber Security\\NetLock RMM\\Comm Agent\\*",
+          "C:\\Program Files\\0x101 Cyber Security\\NetLock RMM\\UserAgent\\NetLock_RMM_User_Process.exe",
+          "C:\\Program Files\\0x101 Cyber Security\\NetLock RMM\\UserAgent\\NetLock_RMM_User_UAC.exe",
+          "C:\\temp\\netlock rmm\\installer\\logs\\",
+          "C:\\ProgramData\\0x101 Cyber Security\\NetLock RMM\\Comm Agent\\"
+        ]
+      },
+      "references": [
+        "https://www.netlockrmm.com/",
+        "https://www.netlockrmm.com",
+        "https://github.com/0x101-Cyber-Security/NetLock-RMM"
+      ]
+    },
+    {
+      "id": "netmaster",
+      "name": "NetMaster",
+      "artifacts": {
+        "processes": [
+          "NetMaster_Client.exe"
+        ],
+        "services": [
+          "netmaster"
+        ],
+        "install_paths": [
+          "C:\\ProgramData\\NetMaster\\NetMaster_Client.exe",
+          "C:\\ProgramData\\NetMaster\\config.ini",
+          "C:\\ProgramData\\NetMaster\\"
+        ]
+      },
+      "references": [
+        "https://github.com/f3di006/NetMaster",
+        "https://github.com/f3di006/NetMaster/blob/b5dca5f2f11d8a76cda25122e82eb44cdcb07725/README.md",
+        "https://github.com/f3di006/NetMaster/blob/b5dca5f2f11d8a76cda25122e82eb44cdcb07725/ClientInstaller/installer.bat",
+        "https://github.com/f3di006/NetMaster/blob/b5dca5f2f11d8a76cda25122e82eb44cdcb07725/NetMaster_Client/Core.cpp"
+      ]
+    },
+    {
+      "id": "netop",
+      "name": "Netop",
+      "artifacts": {
+        "install_paths": [
+          "C:\\Program Files\\Danware Data\\NetOp Packn Deploy\\*",
+          "*\\Danware Data\\NetOp Packn Deploy\\*",
+          "*\\Netop Remote Control\\*"
+        ]
+      },
+      "references": [
+        "https://netop.com/"
+      ]
+    },
+    {
+      "id": "netop-remote-control-aka-impero-connect",
+      "name": "Netop Remote Control (aka Impero Connect)",
+      "artifacts": {
+        "processes": [
+          "nhostsvc.exe",
+          "nhstw32.exe",
+          "nldrw32.exe",
+          "rmserverconsolemediator.exe"
+        ]
+      },
+      "references": [
+        "https://netop.com/"
+      ]
+    },
+    {
+      "id": "netop-remote-control-impero-connect",
+      "name": "Netop Remote Control (Impero Connect)",
+      "artifacts": {
+        "processes": [
+          "nhostsvc.exe",
+          "nhstw32.exe",
+          "ngstw32.exe",
+          "nldrw32.exe",
+          "rmserverconsolemediator.exe",
+          "ImperoInit.exe",
+          "Connect.Backdrop.cloud*.exe",
+          "ImperoClientSVC.exe"
+        ]
+      },
+      "references": [
+        "https://netop.com/",
+        "https://kb.netop.com/article/firewall-and-proxy-server-considerations-when-using-netop-portal-communication-373.html"
+      ]
+    },
+    {
+      "id": "netsupport-manager",
+      "name": "NetSupport Manager",
+      "artifacts": {
+        "processes": [
+          "remcmdstub.exe",
+          "hypersnap.exe",
+          "pcictlui.exe",
+          "pcicfgui.exe",
+          "client32.exe"
+        ]
+      },
+      "references": [
+        "https://www.netsupportmanager.com/",
+        "https://www.netsupportmanager.com/resources/",
+        "https://www.netsupportmanager.com/complete-remote-control/",
+        "https://kb.netsupportsoftware.com/knowledge-base/netsupport-manager-control-command-line-options/"
+      ]
+    },
+    {
+      "id": "neturo",
+      "name": "Neturo",
+      "artifacts": {
+        "processes": [
+          "neturo*.exe",
+          "ntrntservice.exe",
+          "neturo.exe"
+        ]
+      },
+      "references": [
+        "http://www.iconpos.com/pos/home/iconpos/bbs.php?id=file&q=view&uid=2"
+      ]
+    },
+    {
+      "id": "netviewer",
+      "name": "Netviewer",
+      "artifacts": {
+        "processes": [
+          "netviewer*.exe",
+          "netviewer.exe"
+        ]
+      },
+      "references": []
+    },
+    {
+      "id": "netviewer-gotomeet",
+      "name": "Netviewer (GoToMeet)",
+      "artifacts": {
+        "processes": [
+          "NetViewer.exe",
+          "nvClient.exe",
+          "nvConsole.exe"
+        ]
+      },
+      "references": [
+        "https://www.goto.com/meeting/join",
+        "https://www.netviewer.com/de/support/download/"
+      ]
+    },
+    {
+      "id": "nexus-rmm-scogo",
+      "name": "Nexus RMM (Scogo)",
+      "artifacts": {
+        "processes": [
+          "nexusrmm.exe"
+        ]
+      },
+      "references": [
+        "https://scogo.ai/",
+        "https://scogo.ai/blog/scogo-ai-is-now-available-on-microsoft-marketplace"
+      ]
+    },
+    {
+      "id": "nezha",
+      "name": "Nezha",
+      "artifacts": {
+        "processes": [
+          "nezha-agent.exe",
+          "dashboard-windows-amd64.exe"
+        ],
+        "services": [
+          "nezha-agent"
+        ],
+        "install_paths": [
+          "C:\\nezha\\*",
+          "C:\\Program Files\\nezha\\*",
+          "*\\nezha-agent.exe",
+          "C:\\nezha\\"
+        ]
+      },
+      "references": [
+        "https://nezha.wiki/",
+        "https://github.com/nezhahq/nezha",
+        "https://www.huntress.com/blog/nezha-china-nexus-threat-actor-tool",
+        "https://www.ontinue.com/resource/nezha-the-monitoring-tool-thats-also-a-perfect-rat/"
+      ]
+    },
+    {
+      "id": "ninite-pro-ninite-agent",
+      "name": "Ninite Pro (Ninite Agent)",
+      "artifacts": {
+        "processes": [
+          "NiniteOne.exe",
+          "NinitePro.exe",
+          "NiniteAgent.exe",
+          "Ninite.exe"
+        ],
+        "install_paths": [
+          "%TEMP%\\NiniteDownloads\\"
+        ]
+      },
+      "references": [
+        "https://ninite.com/pro",
+        "https://ninite.com/help/features/switches.html",
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-025a",
+        "https://app.any.run/tasks/63eed0ac-312c-49ec-a336-f86098c5646b"
+      ]
+    },
+    {
+      "id": "ninjaone-formerly-ninjarmm",
+      "name": "NinjaOne (formerly NinjaRMM)",
+      "artifacts": {
+        "install_paths": [
+          "*ProgramData\\NinjaRMMAgent\\*"
+        ]
+      },
+      "references": [
+        "https://www.ninjaone.com/rmm/"
+      ]
+    },
+    {
+      "id": "ninjarmm",
+      "name": "NinjaRMM",
+      "artifacts": {
+        "processes": [
+          "NinjaRMMAgent.exe",
+          "NinjaRMMAgentPatcher.exe",
+          "ninjarmm-cli.exe"
+        ]
+      },
+      "references": [
+        "https://www.ninjaone.com/rmm/",
+        "https://www.ninjaone.com/faq/"
+      ]
+    },
+    {
+      "id": "ntr-remote",
+      "name": "NTR Remote",
+      "artifacts": {
+        "processes": [
+          "NTRsupportPro_EN.exe"
+        ]
+      },
+      "references": []
+    },
+    {
+      "id": "nvda-non-visual-desktop-access",
+      "name": "NVDA (Non-Visual Desktop Access)",
+      "artifacts": {
+        "processes": [
+          "nvda.exe",
+          "nvda_service.exe",
+          "nvda_*.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\NVDA\\nvda.exe",
+          "C:\\Program Files\\NVDA\\nvda.exe",
+          "C:\\Users\\*\\AppData\\Roaming\\nvda\\*",
+          "C:\\Users\\*\\AppData\\Local\\Temp\\nvda_*\\*",
+          "C:\\Program Files (x86)\\NVDA\\",
+          "C:\\Program Files\\NVDA\\",
+          "C:\\Users\\*\\AppData\\Roaming\\nvda\\"
+        ]
+      },
+      "references": [
+        "https://www.nvaccess.org/",
+        "https://github.com/magicsword-io/LOLRMM/issues/89",
+        "https://github.com/nvaccess/nvda/pull/17580"
+      ]
+    },
+    {
+      "id": "obliance",
+      "name": "Obliance",
+      "artifacts": {
+        "processes": [
+          "obliance-agent.exe",
+          "obliance-tray.exe",
+          "obliance-watchdog.exe"
+        ],
+        "services": [
+          "OblianceAgent"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\OblianceAgent\\obliance-agent.exe",
+          "C:\\Program Files\\OblianceAgent\\obliance-tray.exe",
+          "C:\\Program Files\\OblianceAgent\\obliance-watchdog.exe",
+          "C:\\ProgramData\\OblianceAgent\\config.json",
+          "C:\\ProgramData\\OblianceAgent\\agent.log",
+          "C:\\ProgramData\\OblianceAgent\\watchdog.json",
+          "C:\\Program Files\\OblianceAgent\\",
+          "C:\\ProgramData\\OblianceAgent\\"
+        ]
+      },
+      "references": [
+        "https://github.com/MeeJay/Obliance",
+        "https://github.com/MeeJay/Obliance/blob/f1eb7e886df9b16d46f13d19cec4b7d6cedcf4ac/README.md",
+        "https://github.com/MeeJay/Obliance/blob/f1eb7e886df9b16d46f13d19cec4b7d6cedcf4ac/agent/installer/product.wxs",
+        "https://github.com/MeeJay/Obliance/blob/f1eb7e886df9b16d46f13d19cec4b7d6cedcf4ac/agent/service_windows.go"
+      ]
+    },
+    {
+      "id": "ocs-inventory",
+      "name": "OCS inventory",
+      "artifacts": {
+        "processes": [
+          "ocsinventory.exe",
+          "ocsservice.exe"
+        ]
+      },
+      "references": [
+        "https://ocsinventory-ng.org/",
+        "https://ocsinventory-ng.org/?page_id=878&lang=en"
+      ]
+    },
+    {
+      "id": "opale",
+      "name": "Opale",
+      "artifacts": {
+        "processes": [
+          "opale-agent.exe"
+        ],
+        "services": [
+          "Opale-Agent"
+        ],
+        "install_paths": [
+          "C:\\ProgramData\\Opale\\opale-agent.exe",
+          "C:\\ProgramData\\Opale\\"
+        ]
+      },
+      "references": [
+        "https://github.com/4rtefakt/opale",
+        "https://github.com/4rtefakt/opale/blob/4bf1b7ad9dd810fa97e2d1c6dd09aeaca42ba692/README.md",
+        "https://github.com/4rtefakt/opale/blob/4bf1b7ad9dd810fa97e2d1c6dd09aeaca42ba692/INSTALL.md",
+        "https://github.com/4rtefakt/opale/blob/4bf1b7ad9dd810fa97e2d1c6dd09aeaca42ba692/agent-go/branding/branding.go"
+      ]
+    },
+    {
+      "id": "opendesk-rmm-agent",
+      "name": "OpenDesk RMM Agent",
+      "artifacts": {
+        "processes": [
+          "OpenDesk-RMM-Agent.exe"
+        ]
+      },
+      "references": [
+        "https://github.com/nextcoreti/opendesk-rmm-agent",
+        "https://github.com/nextcoreti/opendesk-rmm-agent/releases/tag/v2.10.24",
+        "https://github.com/nextcoreti/opendesk-rmm-agent/releases/download/v2.10.24/OpenDesk-RMM-Agent.exe"
+      ]
+    },
+    {
+      "id": "openuem",
+      "name": "OpenUEM",
+      "artifacts": {
+        "processes": [
+          "openuem-agent-setup.exe"
+        ],
+        "services": [
+          "openuem-agent"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\OpenUEM Agent\\*",
+          "C:\\Program Files\\OpenUEM Agent\\config\\openuem.ini",
+          "C:\\Program Files\\OpenUEM Agent\\logs\\openuem-log.txt",
+          "C:\\Program Files\\OpenUEM Agent\\config\\",
+          "C:\\Program Files\\OpenUEM Agent\\logs\\"
+        ]
+      },
+      "references": [
+        "https://openuem.eu/",
+        "https://github.com/open-uem/openuem-agent/blob/ee23c21f11464b9c130445d017b413385b6d0d9c/README.md",
+        "https://github.com/open-uem/openuem-agent/blob/ee23c21f11464b9c130445d017b413385b6d0d9c/internal/service/windows/main.go",
+        "https://github.com/open-uem/openuem-agent/blob/ee23c21f11464b9c130445d017b413385b6d0d9c/internal/logger/logger_windows.go"
+      ]
+    },
+    {
+      "id": "opsbridge-agent",
+      "name": "OpsBridge Agent",
+      "artifacts": {
+        "processes": [
+          "OpsBridgeAgent.exe"
+        ],
+        "uninstall_key_names": [
+          "OpsBridgeAgent"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\OpsBridge\\OpsBridgeAgent.exe",
+          "C:\\ProgramData\\OpsBridge\\*",
+          "C:\\Windows\\System32\\Tasks\\OpsBridge Agent",
+          "C:\\Program Files\\OpsBridge\\",
+          "C:\\ProgramData\\OpsBridge\\",
+          "C:\\Windows\\System32\\Tasks\\"
+        ]
+      },
+      "references": [
+        "https://opsbridge.digital/",
+        "https://github.com/magicsword-io/LOLRMM/issues/242",
+        "https://www.virustotal.com/gui/file/6f5c207de0e60fb54e34f439b21c8c317539c8c0262f76ad1c19cff0ecb76914/behavior",
+        "https://www.virustotal.com/gui/file/2a0e94343f24039319e01636d1b30a368f43b598cff6d555fd14fa0f38236fb0"
+      ]
+    },
+    {
+      "id": "optitune",
+      "name": "OptiTune",
+      "artifacts": {
+        "processes": [
+          "OTService.exe",
+          "OTPowerShell.exe"
+        ]
+      },
+      "references": [
+        "https://www.bravurasoftware.com/optitune/",
+        "https://www.bravurasoftware.com/optitune/support/faq.aspx"
+      ]
+    },
+    {
+      "id": "pandora-rc-ehorus",
+      "name": "Pandora RC (eHorus)",
+      "artifacts": {
+        "processes": [
+          "ehorus_agent.exe"
+        ]
+      },
+      "references": [
+        "https://pandorafms.com/en/remote-control/",
+        "https://pandorafms.com/manual/!current/en/documentation/09_pandora_rc/01_pandora_rc_introduction"
+      ]
+    },
+    {
+      "id": "panorama9",
+      "name": "Panorama9",
+      "artifacts": {
+        "processes": [
+          "p9agent*.exe"
+        ]
+      },
+      "references": [
+        "https://panorama9.com/",
+        "https://support.panorama9.com/en/articles/1859605-what-ports-and-hosts-does-the-p9-agent-communicate-with"
+      ]
+    },
+    {
+      "id": "parallels-access",
+      "name": "Parallels Access",
+      "artifacts": {
+        "processes": [
+          "parallelsaccess-*.exe",
+          "TSClient.exe",
+          "prl_deskctl_agent.exe",
+          "prl_deskctl_wizard.exe",
+          "prl_pm_service.exe"
+        ]
+      },
+      "references": [
+        "https://www.parallels.com/",
+        "https://kb.parallels.com/en/129097"
+      ]
+    },
+    {
+      "id": "pchelpware",
+      "name": "PChelpware",
+      "artifacts": {
+        "processes": [
+          "PcHelpWare_viewer.exe"
+        ],
+        "install_paths": [
+          "*\\PcHelpWare_viewer.exe",
+          "C:\\"
+        ]
+      },
+      "references": [
+        "https://uvnc.com/downloads/pchelpware/"
+      ]
+    },
+    {
+      "id": "pcnow",
+      "name": "Pcnow",
+      "artifacts": {
+        "processes": [
+          "mwcliun.exe",
+          "pcnmgr.exe",
+          "webexpcnow.exe"
+        ]
+      },
+      "references": [
+        "http://pcnow.webex.com/ - DOA as of 2024"
+      ]
+    },
+    {
+      "id": "pcvisit",
+      "name": "Pcvisit",
+      "artifacts": {
+        "processes": [
+          "pcvisit.exe",
+          "pcvisit_client.exe",
+          "pcvisit-easysupport.exe",
+          "pcvisit_service_client.exe"
+        ]
+      },
+      "references": [
+        "https://www.pcvisit.de/"
+      ]
+    },
+    {
+      "id": "pdq-connect",
+      "name": "PDQ Connect",
+      "artifacts": {
+        "processes": [
+          "pdq-connect*.exe"
+        ],
+        "install_paths": [
+          "C:\\ProgramData\\PDQ\\PDQConnectAgent\\"
+        ]
+      },
+      "references": [
+        "https://www.pdq.com/pdq-connect/",
+        "https://connect.pdq.com/hc/en-us/articles/12489014928667-Collect-PDQ-Connect-Event-Logs",
+        "https://connect.pdq.com/hc/en-us/articles/19197321496219-PDQ-Connect-Output-Logs",
+        "https://connect.pdq.com/hc/en-us/articles/9518992071707-Network-Requirements"
+      ]
+    },
+    {
+      "id": "pilixo",
+      "name": "Pilixo",
+      "artifacts": {
+        "processes": [
+          "rdp.exe",
+          "Pilixo_Installer*.exe"
+        ]
+      },
+      "references": [
+        "https://pilixo.freshdesk.com/support/solutions/articles/9000141879-device-connectivity-and-firewalls"
+      ]
+    },
+    {
+      "id": "ping32",
+      "name": "Ping32",
+      "artifacts": {
+        "processes": [
+          "NSecRTS.exe",
+          "NSecDs.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Common Files\\NSEC\\",
+          "C:\\Program Files (x86)\\Common Files\\NSEC\\",
+          "C:\\Program Files (x86)\\Common Files\\NSecAgent\\bin\\x86\\NSecRTS.exe",
+          "C:\\Program Files (x86)\\Common Files\\NSecAgent\\bin\\x64\\NSecRTS.exe",
+          "C:\\Program Files\\Common Files\\NSEC\\NSecRTS.exe",
+          "C:\\Program Files\\Common Files\\NSEC\\PCinfo.dll",
+          "C:\\Program Files (x86)\\Common Files\\NSEC\\Data\\",
+          "C:\\SmartSnap\\*\\",
+          "C:\\NSEC\\Debug\\Log\\",
+          "C:\\NSecAgent\\Debug\\Log\\",
+          "C:\\NSEC\\",
+          "C:\\Program Files (x86)\\Common Files\\NSecAgent\\data\\"
+        ]
+      },
+      "references": [
+        "https://www.nsecsoft.com/",
+        "https://www.netresec.com/?page=Blog&month=2026-06&post=Ping32-RMM-and-ValleyRAT",
+        "https://ti.qianxin.com/blog/articles/genuine-surveillance-software-used-by-hackers/",
+        "https://www.seqrite.com/blog/indian-income-tax-themed-phishing-campaign-targets-local-businesses/"
+      ]
+    },
+    {
+      "id": "pocket-cloud-wyse",
+      "name": "Pocket Cloud (Wyse)",
+      "artifacts": {
+        "processes": [
+          "pocketcloud*.exe",
+          "pocketcloudservice.exe"
+        ]
+      },
+      "references": [
+        "https://wyse-pocketcloud.informer.com/2.1/"
+      ]
+    },
+    {
+      "id": "pocket-controller",
+      "name": "Pocket Controller",
+      "artifacts": {
+        "processes": [
+          "pocketcontroller.exe",
+          "pocketcloudservice.exe",
+          "wysebrowser.exe"
+        ]
+      },
+      "references": [
+        "https://soti.net/products/soti-pocket-controller"
+      ]
+    },
+    {
+      "id": "pocket-controller-soti-xsight",
+      "name": "Pocket Controller (Soti Xsight)",
+      "artifacts": {
+        "processes": [
+          "pocketcontroller.exe",
+          "wysebrowser.exe",
+          "XSightService.exe"
+        ]
+      },
+      "references": [
+        "https://soti.net/products/soti-xsight/",
+        "https://pulse.soti.net/support/soti-xsight/help/"
+      ]
+    },
+    {
+      "id": "proxiport",
+      "name": "ProxiPort",
+      "artifacts": {
+        "processes": [
+          "proxiport.exe"
+        ],
+        "services": [
+          "proxiport"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\ProxiPort\\proxiport.exe",
+          "C:\\Program Files\\ProxiPort\\proxiport.conf",
+          "C:\\Program Files\\ProxiPort\\"
+        ]
+      },
+      "references": [
+        "https://github.com/proximile/proxiport",
+        "https://github.com/proximile/proxiport/blob/1dfd4a9e1ca10be24fa2ee287b92d0967a2c7962/README.md",
+        "https://github.com/proximile/proxiport/blob/1dfd4a9e1ca10be24fa2ee287b92d0967a2c7962/docs/install.md",
+        "https://github.com/proximile/proxiport/blob/1dfd4a9e1ca10be24fa2ee287b92d0967a2c7962/opt/resource/Product.wxs"
+      ]
+    },
+    {
+      "id": "pulseway",
+      "name": "Pulseway",
+      "artifacts": {
+        "processes": [
+          "PCMonitorManager.exe",
+          "pcmonitorsrv.exe"
+        ]
+      },
+      "references": [
+        "https://www.pulseway.com/",
+        "https://intercom.help/pulseway/en/"
+      ]
+    },
+    {
+      "id": "qq-im-remote-assistance",
+      "name": "QQ IM-remote assistance",
+      "artifacts": {
+        "processes": [
+          "qq.exe",
+          "QQProtect.exe",
+          "qqpcmgr.exe"
+        ]
+      },
+      "references": [
+        "https://en.wikipedia.org/wiki/Tencent_QQ"
+      ]
+    },
+    {
+      "id": "quest-kace-agent-formerly-dell-kace",
+      "name": "Quest KACE Agent (formerly Dell KACE)",
+      "artifacts": {
+        "processes": [
+          "konea.exe"
+        ]
+      },
+      "references": [
+        "https://www.quest.com/kace/",
+        "https://support.quest.com/kb/4211365/which-network-ports-and-urls-are-required-for-the-kace-sma-appliance-to-function"
+      ]
+    },
+    {
+      "id": "radmin",
+      "name": "RAdmin",
+      "artifacts": {
+        "processes": [
+          "RServer3.exe",
+          "Radmin.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\Radmin Viewer 3\\Radmin.exe",
+          "C:\\Windows\\SysWOW64\\rserver30\\rserver3.exe",
+          "C:\\Windows\\SysWOW64\\rserver30\\FamItrfc",
+          "C:\\Windows\\SysWOW64\\rserver30\\FamItrf2",
+          "C:\\Windows\\SysWOW64\\rserver30\\",
+          "C:\\Windows\\System32\\rserver30\\",
+          "C:\\Windows\\System32\\rserver30\\CHATLOGS\\*\\",
+          "C:\\Users\\*\\Documents\\ChatLogs\\*\\"
+        ]
+      },
+      "references": [
+        "https://www.radmin.com/",
+        "https://radmin-club.com/radmin/how-to-establish-a-connection-outside-of-lan/",
+        "https://helpdesk.radmin.com/radmin3help/",
+        "https://helpdesk.radmin.com/radmin3help/files/viewercmd.htm"
+      ]
+    },
+    {
+      "id": "rapid7",
+      "name": "Rapid7",
+      "artifacts": {
+        "processes": [
+          "ir_agent.exe",
+          "rapid7_agent_core.exe",
+          "rapid7_endpoint_broker.exe"
+        ]
+      },
+      "references": [
+        "https://docs.rapid7.com/insight-agent/overview/",
+        "https://docs.rapid7.com/insightvm/configure-communications-with-the-insight-platform/"
+      ]
+    },
+    {
+      "id": "rdviewer",
+      "name": "RdViewer",
+      "artifacts": {
+        "processes": [
+          "RdServer.exe",
+          "RdClient.exe",
+          "rdService.exe",
+          "dmservice.exe",
+          "diskmgr.exe"
+        ],
+        "services": [
+          "Rd_Service; vendor-documented as rd_service and corroborated by public research and existing sandbox reports",
+          "Rd_Service"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\rdviewer\\rdclient\\",
+          "*\\rdpro\\",
+          "C:\\ProgramData\\host\\",
+          "*\\RdViewerPro\\"
+        ]
+      },
+      "references": [
+        "https://www.rdviewer.com/",
+        "https://www.rdviewer.com/download/",
+        "https://www.rdviewer.com/rdpro/",
+        "https://www.rdviewer.com/help/"
+      ]
+    },
+    {
+      "id": "remcos",
+      "name": "Remcos",
+      "artifacts": {
+        "processes": [
+          "remcos*.exe"
+        ]
+      },
+      "references": []
+    },
+    {
+      "id": "remmon",
+      "name": "Remmon",
+      "artifacts": {
+        "processes": [
+          "remmon.exe"
+        ]
+      },
+      "references": [
+        "https://remmon.hu"
+      ]
+    },
+    {
+      "id": "remobo",
+      "name": "Remobo",
+      "artifacts": {
+        "processes": [
+          "remobo.exe",
+          "remobo_client.exe",
+          "remobo_tracker.exe"
+        ]
+      },
+      "references": [
+        "https://www.remobo.com - DOA as of 2024"
+      ]
+    },
+    {
+      "id": "remote-it",
+      "name": "Remote.it",
+      "artifacts": {
+        "processes": [
+          "remote-it-installer.exe",
+          "remote.it.exe",
+          "remoteit.exe"
+        ]
+      },
+      "references": [
+        "https://www.remote.it/",
+        "https://docs.remote.it/introduction/get-started"
+      ]
+    },
+    {
+      "id": "remote-manipulator-system",
+      "name": "Remote Manipulator System",
+      "artifacts": {
+        "processes": [
+          "rfusclient.exe",
+          "rutserv.exe"
+        ]
+      },
+      "references": [
+        "https://rmansys.ru/",
+        "https://rmansys.ru/files/"
+      ]
+    },
+    {
+      "id": "remote-ripple",
+      "name": "Remote Ripple",
+      "artifacts": {
+        "processes": [
+          "RemoteRipple.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Remote Ripple\\*",
+          "C:\\Program Files (x86)\\Remote Ripple\\*",
+          "%APPDATA%\\GlavSoft\\RemoteRipple\\",
+          "%TEMP%\\"
+        ]
+      },
+      "references": [
+        "https://remoteripple.com"
+      ]
+    },
+    {
+      "id": "remote-utilities",
+      "name": "Remote Utilities",
+      "artifacts": {
+        "processes": [
+          "rutview.exe",
+          "rutserv.exe"
+        ]
+      },
+      "references": [
+        "https://www.remoteutilities.com/",
+        "https://www.remoteutilities.com/download/"
+      ]
+    },
+    {
+      "id": "remotecall",
+      "name": "RemoteCall",
+      "artifacts": {
+        "processes": [
+          "rcengmgru.exe",
+          "rcmgrsvc.exe",
+          "rxstartsupport.exe",
+          "rcstartsupport.exe",
+          "raautoup.exe",
+          "agentu.exe",
+          "remotesupportplayeru.exe"
+        ]
+      },
+      "references": [
+        "https://www.remotecall.com/",
+        "https://help.remotecall.com/hc/en-us/articles/360005128814--RemoteCall-Server-List-For-Firewall"
+      ]
+    },
+    {
+      "id": "remotely",
+      "name": "Remotely",
+      "artifacts": {
+        "processes": [
+          "Remotely_Agent.exe",
+          "Remotely_Desktop.exe"
+        ],
+        "services": [
+          "Remotely_Service"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Remotely\\Remotely_Agent.exe",
+          "C:\\Program Files\\Remotely\\Desktop\\Remotely_Desktop.exe",
+          "C:\\Program Files\\Remotely\\ConnectionInfo.json",
+          "C:\\Program Files\\Remotely\\etag.txt",
+          "C:\\Program Files\\Remotely\\",
+          "C:\\Program Files\\Remotely\\Desktop\\",
+          "%TEMP%\\"
+        ]
+      },
+      "references": [
+        "https://github.com/immense/Remotely",
+        "https://github.com/immense/Remotely/blob/master/README.md",
+        "https://github.com/immense/Remotely/blob/master/Agent/Agent.csproj",
+        "https://github.com/immense/Remotely/blob/master/Desktop.Win/Desktop.Win.csproj"
+      ]
+    },
+    {
+      "id": "remotepass",
+      "name": "RemotePass",
+      "artifacts": {
+        "processes": [
+          "remotepass-access.exe",
+          "rpaccess.exe",
+          "rpwhostscr.exe"
+        ]
+      },
+      "references": [
+        "https://www.remotepass.com/",
+        "https://www.remotepass.com/rpaccess.html - DOA as of 2024"
+      ]
+    },
+    {
+      "id": "remotepc",
+      "name": "RemotePC",
+      "artifacts": {
+        "processes": [
+          "remotepcservice.exe",
+          "RemotePC.exe",
+          "remotepchost.exe",
+          "rpcsuite.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\RemotePC\\*",
+          "*\\RemotePC\\*",
+          "*\\RemotePCService.exe"
+        ]
+      },
+      "references": [
+        "https://www.remotepc.com/",
+        "https://www.remotedesktop.com/helpdesk/faq-firewall"
+      ]
+    },
+    {
+      "id": "remotepulse",
+      "name": "RemotePulse",
+      "artifacts": {
+        "processes": [
+          "InstallCore.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\RemotePulseAgent\\InstallCore.exe",
+          "C:\\Program Files (x86)\\RemotePulseAgent\\agent.ps1",
+          "C:\\Program Files (x86)\\RemotePulseAgent\\defender-exclude.ps1",
+          "C:\\Program Files (x86)\\RemotePulseAgent\\install.ps1",
+          "C:\\Program Files (x86)\\RemotePulseAgent\\install.cmd",
+          "C:\\Program Files (x86)\\RemotePulseAgent\\"
+        ]
+      },
+      "references": [
+        "https://www.remotepulse.io/",
+        "https://github.com/magicsword-io/LOLRMM/issues/226",
+        "https://www.virustotal.com/gui/file/4eab52778134487a4233915f30ddeeff9d165a4312a2d8c5256c20072cd8de53/behavior"
+      ]
+    },
+    {
+      "id": "remoteutilities",
+      "name": "RemoteUtilities",
+      "artifacts": {
+        "processes": [
+          "rutview.exe",
+          "rutserv.exe"
+        ],
+        "install_paths": [
+          "*\\Remote Manipulator System - Server\\*",
+          "C:\\Program Files\\Remote Utilities\\*",
+          "*\\Remote Utilities\\*",
+          "*\\rutserv.exe"
+        ]
+      },
+      "references": [
+        "https://www.remoteutilities.com/"
+      ]
+    },
+    {
+      "id": "remoteview",
+      "name": "RemoteView",
+      "artifacts": {
+        "processes": [
+          "remoteview.exe",
+          "rv.exe",
+          "rvagent.exe",
+          "rvagtray.exe"
+        ]
+      },
+      "references": [
+        "https://content.rview.com/",
+        "https://help.rview.com/hc/en-us/articles/360005175994--RemoteView-Server-list-for-firewall"
+      ]
+    },
+    {
+      "id": "remsupp",
+      "name": "RemSupp",
+      "artifacts": {
+        "processes": [
+          "RemSupp_Setup_x64.exe",
+          "RemSupp.exe",
+          "Uninstall RemSupp.exe"
+        ],
+        "uninstall_key_names": [
+          "99ac595d-36d0-5122-a860-22a3443073cb"
+        ],
+        "install_paths": [
+          "C:\\Users\\*\\AppData\\Local\\remsupp-updater\\installer.exe",
+          "C:\\Users\\*\\AppData\\Local\\Programs\\RemSupp\\RemSupp.exe",
+          "C:\\Users\\*\\AppData\\Local\\Programs\\RemSupp\\Uninstall RemSupp.exe",
+          "C:\\Users\\*\\AppData\\Local\\Programs\\RemSupp\\",
+          "C:\\Users\\*\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\",
+          "C:\\Users\\*\\AppData\\Roaming\\RemSupp\\",
+          "C:\\Users\\*\\AppData\\Roaming\\RemSupp\\Crashpad\\",
+          "C:\\Users\\*\\AppData\\Roaming\\RemSupp\\Local Storage\\leveldb\\",
+          "C:\\Users\\*\\AppData\\Roaming\\RemSupp\\sentry\\queue\\",
+          "C:\\Users\\*\\AppData\\Roaming\\RemSupp\\sentry\\"
+        ]
+      },
+      "references": [
+        "https://api.remsupp.com"
+      ]
+    },
+    {
+      "id": "res-automation-manager",
+      "name": "RES Automation Manager",
+      "artifacts": {
+        "processes": [
+          "wisshell*.exe",
+          "wmc.exe",
+          "wmc_deployer.exe",
+          "wmcsvc.exe"
+        ]
+      },
+      "references": [
+        "https://www.ivanti.com/company/history/res-software",
+        "https://forums.ivanti.com/s/article/INFO-Which-ports-does-Ivanti-Automation-use?language=en_US&ui-force-components-controllers-recordGlobalValueProvider.RecordGvp.getRecord=1"
+      ]
+    },
+    {
+      "id": "rg-system-rg-supervision",
+      "name": "RG System (RG Supervision)",
+      "artifacts": {
+        "processes": [
+          "RG_Supervision.exe"
+        ],
+        "services": [
+          "RG-Supervision"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\RG-Supervision\\*",
+          "C:\\Program Files\\RG-Supervision\\*",
+          "*\\RG-Supervision\\",
+          "*\\AppData\\Local\\Temp\\rgsupv\\cache\\"
+        ]
+      },
+      "references": [
+        "https://www.rgsystem.septeo.com/",
+        "https://bazaar.abuse.ch/sample/076b561bddf88c1482feefb2cbbc11a82b7829528988fd246a6e4a245eb48e73/",
+        "https://info.rgsystem.fr/demande-demo",
+        "https://help.rgsystem.com/hc/en-us/articles/360020605399-Linux-Monitoring-agent"
+      ]
+    },
+    {
+      "id": "rmmmax",
+      "name": "RMMmax",
+      "artifacts": {
+        "processes": [
+          "RMMmaxAgentSetup.exe",
+          "RMMmaxAgentService.exe"
+        ],
+        "services": [
+          "RMMmaxAgentService"
+        ],
+        "install_paths": [
+          "%ProgramData%\\rmmmax\\AgentService\\RMMmaxAgentService.exe",
+          "%ProgramData%\\rmmmax\\AgentService\\",
+          "%SystemRoot%\\Temp\\"
+        ]
+      },
+      "references": [
+        "https://rmmmax.com/",
+        "https://rmmmax.com/pricing/",
+        "https://rmmmax.com/docs/rmmmax-agent-service/installation/download-agent-service/",
+        "https://rmmmax.com/docs/rmmmax-agent-service/installation/agent-service-operation/"
+      ]
+    },
+    {
+      "id": "rocket-remote-desktop",
+      "name": "Rocket Remote Desktop",
+      "artifacts": {
+        "processes": [
+          "RDConsole.exe",
+          "RocketRemoteDesktop_Setup.exe"
+        ]
+      },
+      "references": [
+        "https://www.rocketsoftware.com/en-us/products/remote-desktop"
+      ]
+    },
+    {
+      "id": "roster",
+      "name": "Roster",
+      "artifacts": {
+        "processes": [
+          "agent-windows-amd64.exe"
+        ],
+        "services": [
+          "roster-agent"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Roster\\*",
+          "C:\\ProgramData\\Roster\\agent.yaml",
+          "C:\\ProgramData\\Roster\\agent-state.json",
+          "C:\\Program Files\\Roster\\",
+          "C:\\ProgramData\\Roster\\"
+        ]
+      },
+      "references": [
+        "https://github.com/boonkerz/roster",
+        "https://github.com/boonkerz/roster/blob/4d753560c9fdb6e9b066eb934ccf07ab394c31a4/README.md",
+        "https://github.com/boonkerz/roster/blob/4d753560c9fdb6e9b066eb934ccf07ab394c31a4/deploy/windows/install-agent.ps1",
+        "https://github.com/boonkerz/roster/blob/4d753560c9fdb6e9b066eb934ccf07ab394c31a4/deploy/linux/pc-inventory-agent.service"
+      ]
+    },
+    {
+      "id": "royal-apps",
+      "name": "Royal Apps",
+      "artifacts": {
+        "processes": [
+          "royalserver.exe",
+          "royalts.exe"
+        ]
+      },
+      "references": [
+        "https://www.royalapps.com/",
+        "https://www.royalapps.com/ts/win/download"
+      ]
+    },
+    {
+      "id": "royal-ts",
+      "name": "Royal TS",
+      "artifacts": {
+        "processes": [
+          "royalts.exe"
+        ]
+      },
+      "references": [
+        "https://www.royalapps.com/ts/"
+      ]
+    },
+    {
+      "id": "rport",
+      "name": "RPort",
+      "artifacts": {
+        "processes": [
+          "rport.exe"
+        ]
+      },
+      "references": [
+        "https://kb.rport.io/",
+        "https://kb.rport.io/using-the-remote-access"
+      ]
+    },
+    {
+      "id": "rudesktop",
+      "name": "RuDesktop",
+      "artifacts": {
+        "processes": [
+          "rd.exe",
+          "rudesktop*.exe"
+        ]
+      },
+      "references": [
+        "https://rudesktop.ru/",
+        "https://rudesktop.ru"
+      ]
+    },
+    {
+      "id": "rustdesk",
+      "name": "RustDesk",
+      "artifacts": {
+        "processes": [
+          "rustdesk.exe",
+          "rustdesk*.exe"
+        ],
+        "services": [
+          "RustDesk"
+        ],
+        "uninstall_key_names": [
+          "RustDesk"
+        ],
+        "install_paths": [
+          "C:\\Users\\*\\AppData\\Local\\rustdesk\\rustdesk.exe",
+          "C:\\Users\\*\\AppData\\Local\\rustdesk\\*",
+          "C:\\Program Files\\RustDesk",
+          "C:\\Program Files\\RustDesk\\RustDesk.exe",
+          "C:\\Windows\\ServiceProfiles\\LocalService\\AppData\\Roaming\\RustDesk\\",
+          "C:\\Windows\\ServiceProfiles\\LocalService\\AppData\\Roaming\\RustDesk\\config\\",
+          "C:\\Users\\*\\AppData\\Roaming\\RustDesk\\config\\",
+          "C:\\Users\\*\\AppData\\Roaming\\RustDesk\\log\\",
+          "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\"
+        ]
+      },
+      "references": [
+        "https://rustdesk.com/",
+        "https://rustdesk.com/docs/en/",
+        "https://rustdesk.com/docs/en/self-host/",
+        "https://rustdesk.com/docs/en/client/windows/"
+      ]
+    },
+    {
+      "id": "screenconnect",
+      "name": "ScreenConnect",
+      "artifacts": {
+        "processes": [
+          "ScreenConnect.ClientService.exe",
+          "ScreenConnect.WindowsClient.exe",
+          "screenconnect*.exe",
+          "ConnectWiseControl*.exe",
+          "connectwise*.exe",
+          "ScreenConnect.ClientSetup*.exe"
+        ],
+        "services": [
+          "ScreenConnect Client (<thumbprint>)"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\ScreenConnect Client (Random)\\ScreenConnect.ClientService.exe",
+          "*\\*\\ScreenConnect.ClientService.exe",
+          "C:\\Program Files (x86)\\ScreenConnect Client (<string ID>)\\*",
+          "*\\ScreenConnect Client*\\*",
+          "*\\*\\ScreenConnect.WindowsClient.exe",
+          "C:\\Program Files*\\ScreenConnect\\App_Data\\",
+          "C:\\ProgramData\\ScreenConnect Client*\\",
+          "C:\\Program Files (x86)\\ScreenConnect Client (*)\\",
+          "C:\\Program Files*\\ScreenConnect Client*\\",
+          "C:\\Windows\\SystemTemp\\ScreenConnect\\",
+          "C:\\Users\\*\\Downloads\\",
+          "C:\\Temp\\"
+        ]
+      },
+      "references": [
+        "https://www.connectwise.com",
+        "https://thedfirreport.com/2023/09/25/from-screenconnect-to-hive-ransomware-in-61-hours/",
+        "https://www.huntress.com/blog/w2-malvertising-to-kernel-mode-edr-kill",
+        "https://newsletter.securityinbits.com/p/screenconnect-rmm-abuse-the-cloud"
+      ]
+    },
+    {
+      "id": "screenmeet",
+      "name": "ScreenMeet",
+      "artifacts": {
+        "processes": [
+          "ScreenMeetSupport.exe",
+          "ScreenMeet.Support.exe"
+        ]
+      },
+      "references": [
+        "https://www.screenmeet.com/",
+        "https://docs.screenmeet.com/docs/firewall-white-list"
+      ]
+    },
+    {
+      "id": "seetrol",
+      "name": "Seetrol",
+      "artifacts": {
+        "processes": [
+          "seetrolcenter.exe",
+          "seetrolclient.exe",
+          "seetrolmyservice.exe",
+          "seetrolremote.exe",
+          "seetrolsetting.exe"
+        ]
+      },
+      "references": [
+        "https://www.seetrol.co.kr/",
+        "http://www.seetrol.com/en/features/features3.php"
+      ]
+    },
+    {
+      "id": "senso-cloud",
+      "name": "Senso.cloud",
+      "artifacts": {
+        "processes": [
+          "SensoClient.exe",
+          "SensoService.exe",
+          "aadg.exe"
+        ]
+      },
+      "references": [
+        "https://senso.cloud/",
+        "https://support.senso.cloud/support/solutions/articles/79000116305-firewall-and-content-filter-configuration"
+      ]
+    },
+    {
+      "id": "sentinel-rmm",
+      "name": "Sentinel RMM",
+      "artifacts": {
+        "processes": [
+          "sentinel-agent.exe"
+        ],
+        "scheduled_tasks": [
+          "SentinelAgent"
+        ],
+        "install_paths": [
+          "C:\\ProgramData\\SentinelAgent\\sentinel-agent.exe",
+          "C:\\ProgramData\\SentinelAgent\\"
+        ]
+      },
+      "references": [
+        "https://github.com/codexX64/sentinel-rmm",
+        "https://github.com/codexX64/sentinel-rmm/blob/554a21d64ab3a03df81520e1519ecb97cc1466bf/README.md",
+        "https://github.com/codexX64/sentinel-rmm/blob/554a21d64ab3a03df81520e1519ecb97cc1466bf/agent/sentinel-agent.py",
+        "https://github.com/codexX64/sentinel-rmm/blob/554a21d64ab3a03df81520e1519ecb97cc1466bf/agent/sentinel-agent.spec"
+      ]
+    },
+    {
+      "id": "servereye",
+      "name": "ServerEye",
+      "artifacts": {
+        "processes": [
+          "servereye*.exe",
+          "ServiceProxyLocalSys.exe"
+        ]
+      },
+      "references": [
+        "https://www.servereye.de/",
+        "https://www.servereye.de/wp-content/uploads/Anleitung-zur-Erstinstallation_aktuell.pdf"
+      ]
+    },
+    {
+      "id": "setme-pro",
+      "name": "SetMe PRO",
+      "artifacts": {
+        "processes": [
+          "SetMe_Client.exe",
+          "tinUnattendedModule.exe",
+          "tinClientDesktopApplication.exe",
+          "tinClientSessionManager.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\Techinline Ltd\\SetMe Unattended\\Client\\SetMe_Client.exe",
+          "C:\\Program Files (x86)\\Techinline Ltd\\SetMe Unattended\\Module\\*\\tinUnattendedModule.exe",
+          "C:\\Program Files (x86)\\Techinline Ltd\\SetMe Unattended\\Client\\",
+          "C:\\Program Files (x86)\\Techinline Ltd\\SetMe Unattended\\Module\\*\\",
+          "C:\\Users\\*\\AppData\\Local\\Temp\\tinClientExtractor-*\\",
+          "C:\\ProgramData\\Techinline Ltd\\",
+          "C:\\ProgramData\\",
+          "C:\\Windows\\Temp\\setme\\Sentry\\"
+        ]
+      },
+      "references": [
+        "https://www.setme.net/",
+        "https://www.setme.net/Pricing",
+        "https://docs.set.me/getting-started/system-requirements",
+        "https://docs.set.me/unattended-access"
+      ]
+    },
+    {
+      "id": "showmypc",
+      "name": "ShowMyPC",
+      "artifacts": {
+        "processes": [
+          "SMPCSetup.exe",
+          "showmypc*.exe",
+          "showmypc.exe"
+        ]
+      },
+      "references": [
+        "https://showmypc.com/",
+        "https://showmypc.com/service/faq/ShowMyPCSecurityOverview1.pdf"
+      ]
+    },
+    {
+      "id": "simplehelp",
+      "name": "SimpleHelp",
+      "artifacts": {
+        "processes": [
+          "simplehelpcustomer.exe",
+          "simpleservice.exe",
+          "simplegatewayservice.exe",
+          "windowslauncher.exe",
+          "spsrv.exe",
+          "vhost.exe"
+        ],
+        "uninstall_key_names": [
+          "SimpleSetup"
+        ],
+        "install_paths": [
+          "C:\\ProgramData\\JWrapper-Remote Access\\*",
+          "%APPDATA%\\JWrapper-SimpleSetup\\*",
+          "C:\\ProgramData\\JWrapper-Remote Access\\",
+          "%APPDATA%\\JWrapper-SimpleSetup\\"
+        ]
+      },
+      "references": [
+        "https://simple-help.com/",
+        "https://simple-help.com/remote-support",
+        "https://www.huntress.com/blog/employee-monitoring-simplehelp-abused-in-ransomware-operations",
+        "https://www.huntress.com/blog/slashandgrab-screen-connect-post-exploitation-in-the-wild-cve-2024-1709-cve-2024-1708"
+      ]
+    },
+    {
+      "id": "site24x7",
+      "name": "Site24x7",
+      "artifacts": {
+        "processes": [
+          "MEAgentHelper.exe",
+          "MonitoringAgent.exe",
+          "Site24x7WindowsAgentTrayIcon.exe",
+          "Site24x7PluginAgent.exe"
+        ]
+      },
+      "references": [
+        "https://www.site24x7.com/",
+        "https://support.site24x7.com/portal/en/kb/articles/which-ports-do-i-need-to-allow-access-in-my-firewall-to-use-site24x7-agent"
+      ]
+    },
+    {
+      "id": "skyfex",
+      "name": "SkyFex",
+      "artifacts": {
+        "processes": [
+          "Deskroll.exe",
+          "DeskRollUA.exe"
+        ]
+      },
+      "references": [
+        "https://deskroll.com/",
+        "https://skyfex.com/"
+      ]
+    },
+    {
+      "id": "sophos-remote-management-system",
+      "name": "Sophos-Remote Management System",
+      "artifacts": {
+        "processes": [
+          "clientmrinit.exe",
+          "mgntsvc.exe",
+          "routernt.exe"
+        ]
+      },
+      "references": [
+        "https://community.sophos.com/on-premise-endpoint/f/sophos-endpoint-software/5725/sophos-remote-management-system"
+      ]
+    },
+    {
+      "id": "sorillus",
+      "name": "Sorillus",
+      "artifacts": {
+        "processes": [
+          "Sorillus-Launcher*.exe"
+        ]
+      },
+      "references": [
+        "https://sorillus.com/"
+      ]
+    },
+    {
+      "id": "splashtop",
+      "name": "Splashtop",
+      "artifacts": {
+        "processes": [
+          "strwinclt.exe",
+          "SRService.exe",
+          "SRAgent.exe",
+          "SSUAgent.exe",
+          "SRUtility.exe",
+          "SRFeature.exe"
+        ],
+        "services": [
+          "Splashtop Software Updater Service",
+          "Splashtop® Remote Service",
+          "SplashtopRemoteService"
+        ],
+        "uninstall_key_names": [
+          "Splashtop Software Updater"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\Splashtop\\*",
+          "*\\Splashtop\\Splashtop Remote\\Client for RMM\\*",
+          "C:\\windows\\System32\\winevt\\Logs\\",
+          "%PROGRAMDATA%\\Splashtop\\Temp\\log\\",
+          "C:\\Program Files (x86)\\Splashtop\\Splashtop Remote\\Server\\log\\",
+          "C:\\Program Files (x86)\\Splashtop\\Splashtop Remote\\Server\\",
+          "C:\\Program Files (x86)\\Splashtop\\Splashtop Software Updater\\",
+          "C:\\Program Files (x86)\\Splashtop\\Splashtop Remote\\Server\\db\\"
+        ]
+      },
+      "references": [
+        "https://www.splashtop.com/",
+        "https://www.synacktiv.com/publications/legitimate-rats-a-comprehensive-forensic-analysis-of-the-usual-suspects.html"
+      ]
+    },
+    {
+      "id": "splashtop-beta",
+      "name": "Splashtop (Beta)",
+      "artifacts": {
+        "processes": [
+          "SRServer.exe",
+          "SplashtopSOS.exe",
+          "Splashtop_Streamer_Windows*.exe",
+          "SRManager.exe"
+        ]
+      },
+      "references": [
+        "https://www.splashtop.com/"
+      ]
+    },
+    {
+      "id": "splashtop-remote",
+      "name": "Splashtop Remote",
+      "artifacts": {
+        "processes": [
+          "strwinclt.exe",
+          "Splashtop_Streamer_Windows*.exe",
+          "SplashtopSOS.exe",
+          "sragent.exe",
+          "srmanager.exe",
+          "srserver.exe",
+          "srservice.exe"
+        ]
+      },
+      "references": [
+        "https://www.splashtop.com/",
+        "https://support-splashtopbusiness.splashtop.com/hc/en-us/articles/115001811966-What-are-the-Firewall-Exceptions-and-IP-addresses-of-Splashtop-servers-Services"
+      ]
+    },
+    {
+      "id": "spyanywhere",
+      "name": "SpyAnywhere",
+      "artifacts": {
+        "processes": [
+          "sysdiag.exe"
+        ]
+      },
+      "references": [
+        "https://www.spytech-web.com/",
+        "https://www.spyanywhere.com/support.shtml"
+      ]
+    },
+    {
+      "id": "stifler-2pint-software",
+      "name": "StifleR (2Pint Software)",
+      "artifacts": {
+        "processes": [
+          "StifleR.ClientApp.exe",
+          "TwoPint.ConfigEditor.Wpf.exe"
+        ],
+        "services": [
+          "StifleRClient"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\2Pint Software\\StifleR Client\\*",
+          "C:\\Program Files\\2Pint Software\\StifleR Client\\TwoPint.ConfigEditor.Wpf\\"
+        ]
+      },
+      "references": [
+        "https://2pintsoftware.com/solution/remote-monitoring-management",
+        "https://documentation.2pintsoftware.com/stifler/configuration/remote-tools-configuration",
+        "https://documentation.2pintsoftware.com/stifler/setup/installation/stifler-client-installation",
+        "https://github.com/2pintsoftware/2Pint-OSDToolkit/blob/master/WinPEBuilder.ps1"
+      ]
+    },
+    {
+      "id": "sunlogin",
+      "name": "SunLogin",
+      "artifacts": {
+        "processes": [
+          "OrayRemoteShell.exe",
+          "OrayRemoteService.exe",
+          "sunlogin*.exe"
+        ]
+      },
+      "references": [
+        "https://sunlogin.oray.com/",
+        "https://sunlogin.oray.com/en/embed/software.html"
+      ]
+    },
+    {
+      "id": "superops",
+      "name": "SuperOps",
+      "artifacts": {
+        "processes": [
+          "superopsticket.exe",
+          "superops.exe"
+        ]
+      },
+      "references": [
+        "https://superops.com/",
+        "https://support.superops.com/en/articles/6632028-how-to-download-and-deploy-the-agent"
+      ]
+    },
+    {
+      "id": "supremo",
+      "name": "Supremo",
+      "artifacts": {
+        "processes": [
+          "SupremoSystem.exe",
+          "supremo.exe",
+          "supremohelper.exe",
+          "supremoservice.exe"
+        ],
+        "install_paths": [
+          "*\\\\supremoremotedesktop\\\\supremosystem.exe",
+          "%USERPROFILE%\\\\AppData\\\\Local\\\\Temp\\\\SupremoRemoteDesktop\\\\",
+          "C:\\\\ProgramData\\\\SupremoRemoteDesktop\\\\"
+        ]
+      },
+      "references": [
+        "https://www.supremocontrol.com/"
+      ]
+    },
+    {
+      "id": "syncro",
+      "name": "Syncro",
+      "artifacts": {
+        "processes": [
+          "Syncro.Installer.exe",
+          "Kabuto.App.Runner.exe",
+          "Syncro.Overmind.Service.exe",
+          "Kabuto.Installer.exe",
+          "KabutoSetup.exe",
+          "Syncro.Service.exe",
+          "Kabuto.Service.Runner.exe",
+          "Syncro.App.Runner.exe",
+          "SyncroLive.Service.exe",
+          "SyncroLive.Agent.exe"
+        ]
+      },
+      "references": [
+        "https://syncromsp.com/",
+        "https://community.syncromsp.com/t/syncro-exceptions-and-allowlists/2004"
+      ]
+    },
+    {
+      "id": "sysaid",
+      "name": "SysAid",
+      "artifacts": {
+        "processes": [
+          "IliAS.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\SysAidServer\\*",
+          "*\\SysAidServer\\*",
+          "*\\SysAid\\*",
+          "*\\IliAS.exe"
+        ]
+      },
+      "references": [
+        "https://www.sysaid.com/"
+      ]
+    },
+    {
+      "id": "syspectr",
+      "name": "Syspectr",
+      "artifacts": {
+        "processes": [
+          "oolocker.exe",
+          "oosyspectr.exe",
+          "syspectr.exe"
+        ]
+      },
+      "references": [
+        "https://www.syspectr.com/",
+        "https://syspectr.com"
+      ]
+    },
+    {
+      "id": "tactical-rmm",
+      "name": "Tactical RMM",
+      "artifacts": {
+        "processes": [
+          "tacticalrmm.exe"
+        ]
+      },
+      "references": [
+        "https://docs.tacticalrmm.com/",
+        "https://docs.tacticalrmm.com"
+      ]
+    },
+    {
+      "id": "tanium",
+      "name": "Tanium",
+      "artifacts": {
+        "processes": [
+          "TaniumClient.exe",
+          "TaniumCX.exe",
+          "TaniumExecWrapper.exe",
+          "TaniumFileInfo.exe",
+          "TPowerShell.exe"
+        ]
+      },
+      "references": [
+        "https://www.tanium.com/",
+        "https://help.tanium.com/bundle/ug_client_cloud/page/client/platform_connections.html"
+      ]
+    },
+    {
+      "id": "teamviewer",
+      "name": "TeamViewer",
+      "artifacts": {
+        "processes": [
+          "TeamViewer.exe",
+          "teamviewer_desktop.exe",
+          "teamviewer_service.exe",
+          "teamviewerqs.exe",
+          "tv_w32.exe",
+          "tv_w64.exe",
+          "tv_x64.exe"
+        ],
+        "services": [
+          "TeamViewer"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\TeamViewer\\",
+          "C:\\Users\\<username>\\AppData\\Local\\Temp\\TeamViewer\\",
+          "TeamViewer\\d\\d_Logfile\\",
+          "%LOCALAPPDATA%\\Temp\\TeamViewer\\",
+          "%APPDATA%\\\\TeamViewer\\\\TeamViewer\\d\\d_Logfile\\",
+          "%LOCALAPPDATA%\\TeamViewer\\Database\\",
+          "%LOCALAPPDATA%\\TeamViewer\\RemotePrinting\\",
+          "%PROGRAMDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\",
+          "C:\\Program Files*\\TeamViewer\\",
+          "C:\\Users\\*\\AppData\\Roaming\\TeamViewer\\MRU\\RemoteSupport\\"
+        ]
+      },
+      "references": [
+        "https://www.teamviewer.com/en",
+        "https://community.teamviewer.com/English/kb/articles/4139-ports-used-by-teamviewer",
+        "https://arista.my.site.com/AristaCommunity/s/article/Security-Analysis-TeamViewer#",
+        "https://www.teamviewer.com/en/global/support/knowledge-base/teamviewer-classic/troubleshooting/log-file-reading-incoming-connection/"
+      ]
+    },
+    {
+      "id": "teledesktop",
+      "name": "TeleDesktop",
+      "artifacts": {
+        "processes": [
+          "pstlaunch.exe",
+          "ptdskclient.exe",
+          "ptdskhost.exe"
+        ]
+      },
+      "references": [
+        "http://potomacsoft.com/ - DOA as of 2024"
+      ]
+    },
+    {
+      "id": "teramind",
+      "name": "Teramind",
+      "artifacts": {
+        "processes": [
+          "tmagentsvc.exe",
+          "Teramind.Setup.Updater.exe",
+          "Teramind.Setup.UI.exe",
+          "Teramind.Setup.UIARM.exe",
+          "teramind-remover.exe",
+          "Teramind.Setup.Remover.exe",
+          "dwm.exe",
+          "clm.exe",
+          "update-shim.exe"
+        ],
+        "services": [
+          "tsvchst"
+        ],
+        "install_paths": [
+          "C:\\ProgramData\\{4CEC2908-5CE4-48F0-A717-8FC833D8017A}\\*",
+          "C:\\ProgramData\\{4CEC2908-5CE4-48F0-A717-8FC833D8017A}\\config",
+          "C:\\ProgramData\\{4CEC2908-5CE4-48F0-A717-8FC833D8017A}\\updates\\*",
+          "C:\\ProgramData\\Teramind Agent\\*",
+          "C:\\ProgramData\\Teramind Agent\\config",
+          "C:\\ProgramData\\Teramind Agent\\<version>\\{6D99445F-F40F-45CB-B433-06302DAE6C70}\\*",
+          "C:\\ProgramData\\Teramind Agent\\<version>\\{6D99445F-F40F-45CB-B433-06302DAE6C70}\\tmagentsvc.exe",
+          "C:\\ProgramData\\Package Cache\\.unverified\\agent",
+          "C:\\ProgramData\\{4CEC2908-5CE4-48F0-A717-8FC833D8017A}\\",
+          "C:\\ProgramData\\{4CEC2908-5CE4-48F0-A717-8FC833D8017A}\\updates\\",
+          "C:\\ProgramData\\Teramind Agent\\",
+          "C:\\ProgramData\\Teramind Agent\\<version>\\{6D99445F-F40F-45CB-B433-06302DAE6C70}\\"
+        ]
+      },
+      "references": [
+        "https://www.teramind.co/",
+        "https://kb.teramind.co/en/articles/8791027-which-location-folder-directory-is-teramind-agent-installed-on",
+        "https://kb.teramind.co/en/articles/8791087-how-to-download-and-install-the-teramind-agent",
+        "https://kb.teramind.co/en/articles/8791095-how-to-verify-if-the-agent-is-installed-uninstalled-running"
+      ]
+    },
+    {
+      "id": "tiflux",
+      "name": "TiFLUX",
+      "artifacts": {
+        "processes": [
+          "TiAgent.exe",
+          "TiService.exe",
+          "TiUpdateService.exe",
+          "si.exe",
+          "7z.exe",
+          "tar.exe"
+        ],
+        "services": [
+          "TiService"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\TiFLUX\\*",
+          "C:\\Program Files (x86)\\TiFLUX\\desktop\\*",
+          "C:\\Program Files (x86)\\TiFLUX\\dependencies\\*",
+          "C:\\Program Files (x86)\\TiFLUX\\dependencies\\7zip\\*",
+          "C:\\Program Files (x86)\\TiFLUX\\dependencies\\tar\\*",
+          "C:\\Program Files (x86)\\TiFLUX\\dependencies\\ultravnc\\*",
+          "C:\\Program Files (x86)\\TiFLUX\\TiService.exe",
+          "C:\\Program Files (x86)\\TiFLUX\\TiUpdateService.exe",
+          "C:\\Program Files (x86)\\TiFLUX\\si.exe",
+          "C:\\Program Files (x86)\\TiFLUX\\desktop\\TiAgent.exe",
+          "%ProgramData%\\Tiflux\\*",
+          "C:\\Program Files (x86)\\TiFLUX\\"
+        ]
+      },
+      "references": [
+        "https://tiflux.com/",
+        "https://tiflux.com/agente-inteligente-acesso-remoto/",
+        "https://tiflux.com/blog/configuracao-do-agente-remoto/",
+        "https://guia-de-uso.tiflux.com/faq/acesso-ao-tiflux/configuracoes-de-agente-remoto/instalacao-e-remocao-do-agente-remoto"
+      ]
+    },
+    {
+      "id": "todesk",
+      "name": "ToDesk",
+      "artifacts": {
+        "processes": [
+          "todesk.exe",
+          "ToDesk_Service.exe",
+          "ToDesk_Setup.exe"
+        ]
+      },
+      "references": [
+        "https://www.todesk.com/"
+      ]
+    },
+    {
+      "id": "total-software-deployment",
+      "name": "Total Software Deployment",
+      "artifacts": {
+        "processes": [
+          "tniwinagent.exe",
+          "Tsdservice.exe"
+        ],
+        "install_paths": [
+          "C:\\ProgramData\\Total Software Deployment\\*",
+          "*\\Total Software Deployment\\*",
+          "*\\tniwinagent.exe",
+          "*\\Tsdservice.exe"
+        ]
+      },
+      "references": [
+        "https://www.total-software-deployment.com/"
+      ]
+    },
+    {
+      "id": "turbomeeting",
+      "name": "TurboMeeting",
+      "artifacts": {
+        "processes": [
+          "pcstarter.exe",
+          "turbomeeting.exe",
+          "turbomeetingstarter.exe"
+        ]
+      },
+      "references": [
+        "http://sourcing.rhubcom.com/v5/faqs.html#collapsetwentysix2-topdiv"
+      ]
+    },
+    {
+      "id": "ultraviewer",
+      "name": "UltraViewer",
+      "artifacts": {
+        "processes": [
+          "UltraViewer_Service.exe",
+          "UltraViewer_Desktop.exe",
+          "ultraviewer.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\UltraViewer\\UltraViewer_Desktop.exe",
+          "*\\UltraViewer\\",
+          "*\\UltraViewer_Desktop.exe"
+        ]
+      },
+      "references": [
+        "https://www.ultraviewer.net/",
+        "https://www.ultraviewer.net/en/200000026-summary-of-ultraviewer-s-security-information.html"
+      ]
+    },
+    {
+      "id": "unisystem-rmm",
+      "name": "UniSystem RMM",
+      "artifacts": {
+        "processes": [
+          "UniRMM.exe"
+        ]
+      },
+      "references": [
+        "https://xelvarunetio.pro/"
+      ]
+    },
+    {
+      "id": "vicarius-vrx",
+      "name": "Vicarius vRx",
+      "artifacts": {
+        "processes": [
+          "topiad.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Vicarius\\Topia\\*",
+          "C:\\Program Files\\Vicarius\\Topia\\Trace\\",
+          "C:\\Program Files\\Vicarius\\Topia\\",
+          "C:\\Program Files\\Vicarius\\"
+        ]
+      },
+      "references": [
+        "https://www.vicarius.io",
+        "https://customer-portal.vicarius.io/vrx-logs-and-files",
+        "https://customer-portal.vicarius.io/ports-opening-dns-whitelisting?hsLang=en",
+        "https://www.huntress.com/blog/two-inc-ransom-notes"
+      ]
+    },
+    {
+      "id": "vizor",
+      "name": "VIZOR",
+      "artifacts": {
+        "processes": [
+          "CLBOOT32.EXE",
+          "CLDIST32.EXE",
+          "CLDISTSVC.EXE",
+          "clMeter32.exe",
+          "clMeterSvc.exe",
+          "HTTPGet.exe",
+          "HTTPPush.exe",
+          "WINCHK32.EXE",
+          "regapps.exe",
+          "lutinfow32.exe",
+          "LuSMBIOS32.exe",
+          "LuLogon.exe",
+          "LUGuard.exe",
+          "LUEDIT.EXE",
+          "SelfUpdater.exe",
+          "VnlSelfUpdate.exe"
+        ],
+        "uninstall_key_names": [
+          "{04821777-1FD1-4C1A-AC4D-BF5D4D53C34C}",
+          "{A40A237D-C090-4C05-8580-9DBECFE3602B}"
+        ],
+        "install_paths": [
+          "C:\\Program Files (x86)\\Vector\\Asset Management Client\\*",
+          "C:\\Program Files\\Vector\\Asset Management Client\\*",
+          "C:\\Program Files\\Vector Networks Limited\\LANutil32 Suite\\*",
+          "C:\\Program Files (x86)\\Vector\\Asset Management Client\\",
+          "C:\\Program Files\\Vector\\Asset Management Client\\",
+          "C:\\Program Files\\Vector Networks Limited\\LANutil32 Suite\\",
+          "C:\\"
+        ]
+      },
+      "references": [
+        "https://www.vector-networks.com/",
+        "https://www.vizor.cloud/",
+        "https://www.vector-networks.com/it-asset-and-service-management/ITAM-SAM-products/asset-vizor.php",
+        "https://www.vizor.cloud/content/it-asset-management/network-discovery/"
+      ]
+    },
+    {
+      "id": "vs-code-remote-tunnels",
+      "name": "VS Code Remote Tunnels",
+      "artifacts": {
+        "processes": [
+          "code-insiders.exe"
+        ],
+        "install_paths": [
+          "C:\\Windows\\debug\\"
+        ]
+      },
+      "references": [
+        "https://code.visualstudio.com/docs/remote/tunnels",
+        "https://www.security.com/threat-intelligence/warlock-ransomware-critical-infrastructure",
+        "https://github.com/microsoft/vscode/blob/f465ef689adfad8a454dcb8648cb7fcd49de44a9/cli/src/commands/tunnels.rs",
+        "https://github.com/microsoft/vscode/blob/f465ef689adfad8a454dcb8648cb7fcd49de44a9/cli/src/tunnels/service_windows.rs"
+      ]
+    },
+    {
+      "id": "weezo",
+      "name": "Weezo",
+      "artifacts": {
+        "processes": [
+          "weezohttpd.exe",
+          "weezo.exe"
+        ]
+      },
+      "references": [
+        "https://weezo.en.softonic.com"
+      ]
+    },
+    {
+      "id": "xeox",
+      "name": "Xeox",
+      "artifacts": {
+        "processes": [
+          "xeox-agent_x64.exe",
+          "xeox_service_windows.exe",
+          "xeox-agent_*.exe",
+          "xeox-agent_x86.exe"
+        ]
+      },
+      "references": [
+        "https://xeox.com/",
+        "https://help.xeox.com/knowledge-base/gSuyNfDH6u79M82utnswf2/firewall-settings-xeox-agent-and-integrations/47T7S9tZJ2L1Z2W5gwuXoW"
+      ]
+    },
+    {
+      "id": "zabbix-agent",
+      "name": "Zabbix Agent",
+      "artifacts": {
+        "processes": [
+          "zabbix_agent*.exe"
+        ]
+      },
+      "references": [
+        "https://www.zabbix.com/",
+        "https://www.zabbix.com/documentation/current/en/manual/appendix/install/windows_agent"
+      ]
+    },
+    {
+      "id": "zecurit",
+      "name": "Zecurit",
+      "artifacts": {
+        "processes": [
+          "ZecuritAgentService.exe",
+          "ZecuritAgentRegister.exe",
+          "ZecuritAgentTray.exe",
+          "ZecuritAgentAssetMgr.exe",
+          "ZecuritLiveNotifier.exe",
+          "ZecuritCommandProcessor.exe",
+          "ZecuritRemoteTools.exe",
+          "ZecuritScreenReaderService.exe",
+          "ZecuritScreenReaderApp.exe",
+          "ZecuritScreenReaderAppUI.exe",
+          "ZecuritApplicationControlService.exe",
+          "ZecuritAgentUpgrader.exe",
+          "zecurit_windows_agent.exe"
+        ],
+        "install_paths": [
+          "C:\\Program Files\\Zecurit\\Agent\\ZecuritAgentService.exe",
+          "C:\\Program Files\\Zecurit\\Agent\\ZecuritAgentRegister.exe",
+          "C:\\Program Files\\Zecurit\\Agent\\ZecuritAgentTray.exe",
+          "C:\\Program Files\\Zecurit\\Agent\\ZecuritAgentAssetMgr.exe",
+          "C:\\Program Files\\Zecurit\\Agent\\ZecuritLiveNotifier.exe",
+          "C:\\Program Files\\Zecurit\\Agent\\ZecuritCommandProcessor.exe",
+          "C:\\Program Files\\Zecurit\\Agent\\ZecuritRemoteTools.exe",
+          "C:\\Program Files\\Zecurit\\Agent\\ZecuritScreenReaderService.exe",
+          "C:\\Program Files\\Zecurit\\Agent\\ZecuritScreenReaderApp.exe",
+          "C:\\Program Files\\Zecurit\\Agent\\ZecuritScreenReaderAppUI.exe",
+          "C:\\Program Files\\Zecurit\\Agent\\ZecuritApplicationControlService.exe",
+          "C:\\Windows\\Temp\\Zecurit\\ZecuritAgentUpgrader.exe"
+        ]
+      },
+      "references": [
+        "https://zecurit.com/",
+        "https://zecurit.com/how-it-works/",
+        "https://zecurit.com/remote-access/",
+        "https://zecurit.com/remote-access/remote-troubleshooting-software/"
+      ]
+    },
+    {
+      "id": "zoho-assist",
+      "name": "Zoho Assist",
+      "artifacts": {
+        "processes": [
+          "toolsiq.exe",
+          "zaservice.exe",
+          "ZMAgent.exe",
+          "ZohoMeeting.exe",
+          "Zohours.exe",
+          "zohotray.exe",
+          "ZohoURSService.exe",
+          "ZA_Access.exe",
+          "za_connect.exe",
+          "connect.exe"
+        ],
+        "install_paths": [
+          "*\\ZA_Access.exe"
+        ]
+      },
+      "references": [
+        "https://www.zoho.com/assist/",
+        "https://www.zoho.com/assist/kb/firewall-configuration.html"
+      ]
+    }
+  ]
+}

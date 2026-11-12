@@ -1,0 +1,23 @@
+{
+  "tools": [
+    {
+      "id": "dup",
+      "name": "Dup"
+    },
+    {
+      "id": "dup",
+      "name": "Dup2"
+    }
+  ],
+  "schema": "rmm-sentinel-catalog/1",
+  "source": {
+    "repo_url": "https://e",
+    "name": "t",
+    "scope": "t",
+    "url": "https://e",
+    "api_snapshot_url": "https://e",
+    "license": "Apache-2.0",
+    "snapshot_date": "2026-11-12"
+  },
+  "version": "0.1.0"
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "rmm-sentinel-catalog/1",
+  "version": "0.1.0-test",
+  "generated_at": "2026-11-12",
+  "license_note": "synthetic test catalog",
+  "source": {
+    "name": "synthetic test fixture",
+    "url": "https://example.invalid/synthetic",
+    "api_snapshot_url": "https://example.invalid/snapshot.json",
+    "repo_url": "https://example.invalid/repo",
+    "license": "Apache-2.0",
+    "snapshot_date": "2026-11-12",
+    "scope": "synthetic values only"
+  },
+  "tools": [
+    {
+      "id": "synthrmm",
+      "name": "SynthRMM",
+      "artifacts": {
+        "processes": ["synthrmm.exe"],
+        "services": ["SynthRMM"],
+        "scheduled_tasks": ["SynthRMMUpdateTask*"],
+        "uninstall_key_names": ["SynthRMM"],
+        "install_paths": ["C:\\Program Files\\SynthRMM\\*"],
+        "typical_dirs": ["C:\\Program Files\\SynthRMM\\*"]
+      },
+      "references": ["https://example.invalid/synthrmm"]
+    },
+    {
+      "id": "quickrmm",
+      "name": "QuickRMM",
+      "artifacts": {
+        "processes": ["quickrmm_agent.exe"],
+        "install_paths": ["C:\\ProgramData\\QuickRMM\\"],
+        "typical_dirs": ["C:\\ProgramData\\QuickRMM\\"]
+      }
+    }
+  ]
+}

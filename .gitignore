@@ -1,0 +1,24 @@
+# No build output: this project is bare node (0 dependencies).
+node_modules/
+
+# Test / coverage / SBOM artifacts
+sbom.cdx.json
+*.lcov
+.nyc_output/
+
+# Secrets - never commit
+.env
+.env.*
+*.pem
+*.key
+*.p12
+
+# Tool scratch
+*.log
+*.tmp
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

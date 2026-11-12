@@ -1,0 +1,19 @@
+{
+  "name": "rmm-sentinel",
+  "version": "0.1.0",
+  "description": "Read-only Windows RMM inventory, abuse-signal scanner and IOC/rule generator (defensive)",
+  "type": "module",
+  "private": true,
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "gates": "node --test ci/test-gates.mjs ci/test-bootstrap.mjs",
+    "coverage": "node ci/coverage.mjs",
+    "bootstrap": "node ci/bootstrap.mjs",
+    "keywords": "node ci/check-keywords.mjs",
+    "sbom": "node ci/sbom.mjs --out sbom.cdx.json"
+  }
+}
