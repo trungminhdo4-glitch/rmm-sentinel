@@ -1,0 +1,77 @@
+RMM-Sentinel
+Copyright trung-dev
+
+This product includes software developed by trung-dev
+(https://github.com/trung-dev).
+
+================================================================================
+LICENCE SPLIT
+================================================================================
+
+1. CODE (all *.mjs files - the CLI, the src/ modules, the scripts under ci/,
+   and the module as a whole) is licensed under the Apache License,
+   Version 2.0. The full text is in the file LICENSE.
+
+2. CONTENT (the catalog data under data/, the signal-rule metadata, test
+   fixtures under test/, documentation *.md files, issue and pull request
+   templates, and any IOC-like or detection-engineering material in this
+   repository) is licensed under the Creative Commons Attribution 4.0
+   International Licence (CC BY 4.0). The full text is in the file
+   LICENSE-CC-BY-4.0.txt.
+
+   You may use the content commercially, adapt it, and redistribute it, as
+   long as you give attribution to trung-dev and indicate whether you changed
+   it. Attribution must include the repository name and URL:
+   "RMM-Sentinel — github.com/trungminhdo4-glitch/rmm-sentinel".
+
+   When the two licences meet in one file, the more restrictive notice in
+   that file's header applies; absent a header, the split above controls.
+
+================================================================================
+THIRD-PARTY MATERIAL — LOLRMM
+================================================================================
+
+The catalog data under data/rmm-catalog.json is DERIVED from the LOLRMM
+project ("Living Off The Land - Remote Monitoring & Management"):
+
+* Source:        https://lolrmm.io/ (API: https://lolrmm.io/api/rmm_tools.json)
+* Repository:    https://github.com/magicsword-io/LOLRMM
+* Upstream maintainer: magicsword-io
+* Upstream licence: Apache License 2.0
+* Snapshot date: recorded in the catalog's "source.snapshot_date" field
+* Derivation:    deterministic filtering and normalisation of Category RMM
+                 entries with extractable Windows artifacts (process names,
+                 service names, scheduled-task names, uninstall-key names,
+                 install paths); caps and dedup rules are documented in the
+                 catalog file itself.
+
+The snapshot itself is not redistributed; the derived catalog is. Under
+Apache-2.0 (Section 4) this file constitutes the required attribution
+notice, and the catalog carries the derivation note in its
+"license_note"/"source" fields. The catalog format and the metadata written
+by this project are additionally licensed CC BY 4.0 as part of the CONTENT
+split above.
+
+If you redistribute the catalog, keep this attribution and the
+catalog-internal provenance fields intact.
+
+All other test fixtures under test/ are synthetic, written for this project.
+They contain no third-party content and no real credentials.
+
+RMM tool and vendor names in the catalog (AnyDesk, TeamViewer, ConnectWise
+ScreenConnect, Splashtop, RustDesk and the rest) are trademarks or product
+names of their respective owners. They are reproduced solely for
+identification and detection purposes. This project is not affiliated with,
+endorsed by, or sponsored by any RMM vendor, and none of the catalogued
+products are distributed with it.
+
+================================================================================
+ATTRIBUTION FOR REDISTRIBUTIONS
+================================================================================
+
+Redistributions of the code must retain the Apache-2.0 header information
+required by Section 4 of the Apache License 2.0.
+
+Redistributions of the content (catalog, rules, fixtures, documentation)
+must include the attribution described in section 2 above and, when the
+catalog is included, the LOLRMM attribution above.
