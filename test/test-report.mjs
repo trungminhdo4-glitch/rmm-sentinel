@@ -2,6 +2,7 @@
 // proven: without --out the writer is never called.
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import path from "node:path";
 
 import {
   renderInventoryText,
@@ -97,10 +98,11 @@ test("writeIfOut writes nothing without --out", () => {
 
 test("writeIfOut writes via the injectable writer when a path is given", () => {
   const calls = [];
-  const writer = (path, content, enc) => calls.push([path, content, enc]);
+  const writer = (p, content, enc) => calls.push([p, content, enc]);
   const mkDir = () => calls.push(["mkdir"]);
-  const res = writeIfOut("data", "C:\\tmp\\out.json", writer, mkDir);
-  assert.equal(res, "C:\\tmp\\out.json");
+  const outPath = path.join("tmp", "out.json");
+  const res = writeIfOut("data", outPath, writer, mkDir);
+  assert.equal(res, outPath);
   assert.equal(calls.length, 2);
-  assert.deepEqual(calls[1], ["C:\\tmp\\out.json", "data", "utf8"]);
+  assert.deepEqual(calls[1], [outPath, "data", "utf8"]);
 });

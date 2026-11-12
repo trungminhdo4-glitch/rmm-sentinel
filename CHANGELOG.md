@@ -51,4 +51,12 @@ signing and support policy.
   TRANSPARENCY, APPEAL, RELEASING; issue and pull request templates;
   Dependabot configuration.
 
+### Fixed
+
+* **CI** — the `writeIfOut` writer test used the Windows-only literal path
+  `C:\tmp\out.json`; on POSIX `dirname()` of that string is `.`, so the
+  directory creation was skipped, the assertion saw 1 call instead of 2,
+  and the fail-closed coverage gate refused to evaluate. The test now
+  builds its path with `path.join` so both platforms see a subdirectory.
+
 [Unreleased]: https://github.com/trungminhdo4-glitch/rmm-sentinel/compare/HEAD
