@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+    name: build-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: syntax check (node --check, every shipped .mjs)
+        run: |
+          set -e
+          check() { node --check "$1"; }
+          check rmm-sentinel.mjs
+          for f in src/*.mjs ci/*.mjs test/*.mjs; do check "$f"; done
+      - name: unit + acceptance tests (includes the deterministic fuzz sweep)
+        run: node --test
+
+  coverage:
+    name: coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: coverage gate (line coverage >= 80%, every production file accounted)
+        run: node ci/coverage.mjs
+
+  gates:
+    name: gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: gate unit tests (node:test, offline)
+        run: node --test ci/test-gates.mjs ci/test-bootstrap.mjs
+      - name: keyword + scope gate
+        run: node ci/check-keywords.mjs
+      - name: CycloneDX SBOM (must validate)
+        run: node ci/sbom.mjs --out sbom.cdx.json
+
+  dco:
+    name: dco
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Developer Certificate of Origin
+        run: node ci/check-dco.mjs "origin/${{ github.base_ref }}"
