@@ -230,10 +230,13 @@ Important flags:
 | `--fail-on` | `high` | minimum signal severity that exits 1 (`info`, `low`, `medium`, `high`) |
 | `--catalog` | `data/rmm-catalog.json` | alternative catalog JSON (validated, fail-closed) |
 | `--many-families-threshold` | `4` | RS-SIG-005 threshold |
+| `--require-complete` | off | exit 2 for `scan` or `signals` when a probe fails or rows are skipped |
 
 Exit codes: **0** — clean / no signal at or above `--fail-on`;
-**1** — signals at or above `--fail-on` (a `WARNING:` line is printed);
-**2** — usage or runtime error.
+**1** — signals at or above `--fail-on` (JSON mode sends the warning to stderr);
+**2** — usage or runtime error, or an incomplete scan with `--require-complete`.
+Strict mode emits the partial report before returning exit 2, even when the
+report contains signals above the threshold.
 
 Catalog-scanning semantics: catalog values match case-insensitively; `*`
 inside a value is a wildcard (`AnyDesk-*` matches `AnyDesk-1234`). Uninstall
@@ -244,7 +247,7 @@ task name.
 CI / scheduled use:
 
 ```yaml
-- run: node rmm-sentinel.mjs signals --format json --fail-on medium --out signals.json
+- run: node rmm-sentinel.mjs signals --require-complete --format json --fail-on medium --out signals.json
 ```
 
 ## Repository layout

@@ -39,6 +39,7 @@ flags:
   --fail-on <info|low|medium|high>   exit 1 when a signal at/above this severity
                                      exists (default: high)
   --catalog <file>         alternative catalog JSON (default: data/rmm-catalog.json)
+  --require-complete      scan/signals: exit 2 on failed probes or malformed rows
   --many-families-threshold <n>      RS-SIG-005 threshold (default: 4)
   --help                   this text
 
@@ -62,6 +63,7 @@ function parseFlags(argv) {
     const arg = argv[i];
     if (arg === "--help" || arg === "-h") flags.help = true;
     else if (arg === "--version") flags.version = true;
+    else if (arg === "--require-complete") flags["require-complete"] = true;
     else if (arg.startsWith("--")) {
       const eq = arg.indexOf("=");
       let name;
@@ -74,7 +76,8 @@ function parseFlags(argv) {
         value = argv[i + 1];
         i++;
       }
-      if (value === undefined || value === "") return { error: `flag --${name} requires a value` };
+      if (name === "require-complete") return { error: "--require-complete takes no value" };
+      if (!value || value.startsWith("--")) return { error: `flag --${name} requires a value` };
       flags[name] = value;
     } else {
       positional.push(arg);
@@ -100,12 +103,19 @@ function emit(flags, content) {
   }
 }
 
-function cmdScan(flags) {
-  if (!isWindows()) {
+function checkCompleteness(flags, doc) {
+  if (flags["require-complete"] && (doc.probes_failed.length || doc.skipped_rows)) {
+    return fail(`incomplete scan: ${doc.probes_failed.length} failed probe(s), ${doc.skipped_rows} malformed row(s)`);
+  }
+  return 0;
+}
+
+function cmdScan(flags, probe, windows) {
+  if (!windows) {
     return fail("scan requires Windows (read-only local probes); 'ioc' and 'tools' work everywhere");
   }
   const catalog = loadValidatedCatalog(flags);
-  const { probes, warnings } = collectProbes(runProbe);
+  const { probes, warnings } = collectProbes(probe);
   const doc = buildInventory(catalog, probes);
   const out = {
     schema_version: "1.0",
@@ -125,11 +135,11 @@ function cmdScan(flags) {
   } else {
     emit(flags, renderInventoryText(out));
   }
-  return 0;
+  return checkCompleteness(flags, doc);
 }
 
-function cmdSignals(flags) {
-  if (!isWindows()) {
+function cmdSignals(flags, probe, windows) {
+  if (!windows) {
     return fail("signals requires Windows (read-only local probes); 'ioc' and 'tools' work everywhere");
   }
   const catalog = loadValidatedCatalog(flags);
@@ -137,14 +147,14 @@ function cmdSignals(flags) {
   if (!(["info", "low", "medium", "high"].includes(failOn))) {
     return fail(`--fail-on must be one of info|low|medium|high (got '${failOn}')`);
   }
-  const { probes, warnings } = collectProbes(runProbe);
-  const doc = buildInventory(catalog, probes);
   const threshold = flags["many-families-threshold"]
-    ? Number.parseInt(flags["many-families-threshold"], 10)
+    ? Number(flags["many-families-threshold"])
     : undefined;
-  if (threshold !== undefined && (!Number.isInteger(threshold) || threshold < 1)) {
+  if (threshold !== undefined && (!/^[0-9]+$/.test(flags["many-families-threshold"]) || !Number.isSafeInteger(threshold) || threshold < 1)) {
     return fail("--many-families-threshold must be a positive integer");
   }
+  const { probes, warnings } = collectProbes(probe);
+  const doc = buildInventory(catalog, probes);
   const signals = evaluateSignals(catalog, doc.inventory, { manyFamiliesThreshold: threshold });
   const failing = failsOn(signals, failOn);
   const out = {
@@ -158,6 +168,9 @@ function cmdSignals(flags) {
     inventory_tools: doc.inventory.length,
     signals,
     failing_count: failing.length,
+    probes_run: doc.probes_run,
+    probes_failed: doc.probes_failed,
+    skipped_rows: doc.skipped_rows,
     warnings,
   };
   if (flags.format === "json") {
@@ -165,11 +178,12 @@ function cmdSignals(flags) {
   } else {
     emit(flags, renderSignalsText(out));
   }
-  if (failing.length > 0) {
-    process.stdout.write(`WARNING: ${failing.length} signal(s) at or above --fail-on ${failOn}\n`);
-    return 1;
-  }
-  return 0;
+  const incomplete = checkCompleteness(flags, doc);
+  if (incomplete) return incomplete;
+  if (failing.length === 0) return 0;
+  const warningStream = flags.format === "json" ? process.stderr : process.stdout;
+  warningStream.write(`WARNING: ${failing.length} signal(s) at or above --fail-on ${failOn}\n`);
+  return 1;
 }
 
 function cmdIoc(flags) {
@@ -202,7 +216,7 @@ function cmdTools(flags) {
   return 0;
 }
 
-export function main(argv) {
+export function main(argv, { probe = runProbe, windows = isWindows() } = {}) {
   if (argv.includes("--help") || argv.includes("-h")) {
     process.stdout.write(USAGE);
     return 0;
@@ -216,12 +230,15 @@ export function main(argv) {
   const command = positional[0];
   const extra = positional.slice(1);
   if (extra.length > 0) return fail(`unexpected argument: '${extra[0]}' (commands take no positional arguments)`);
+  if (flags["require-complete"] && command !== "scan" && command !== "signals") {
+    return fail("--require-complete is available for scan and signals");
+  }
   try {
     switch (command) {
       case "scan":
-        return cmdScan(flags);
+        return cmdScan(flags, probe, windows);
       case "signals":
-        return cmdSignals(flags);
+        return cmdSignals(flags, probe, windows);
       case "ioc":
         return cmdIoc(flags);
       case "tools":

@@ -40,6 +40,10 @@ export function renderSignalsText(doc) {
   const lines = [];
   lines.push(`RMM-Sentinel ${doc.version} - abuse-signal review (heuristic, for human review)`);
   lines.push(`signals: ${doc.signals.length}, fail-on: ${doc.fail_on}`);
+  if (doc.probes_failed?.length) {
+    lines.push(`probes failed (partial inventory!): ${doc.probes_failed.join(", ")}`);
+  }
+  if (doc.skipped_rows > 0) lines.push(`skipped malformed rows: ${doc.skipped_rows}`);
   if (doc.signals.length === 0) {
     lines.push("");
     lines.push("No abuse signals above 'info' were raised. This is not a guarantee.");

@@ -135,3 +135,49 @@ test("--out writes the report (the only opt-in write)", () => {
 test("main is importable and does not auto-execute on import", () => {
   assert.equal(typeof main, "function");
 });
+
+test("strict scan preserves the JSON report and exits 2 on a failed probe", (t) => {
+  const stdout = t.mock.method(process.stdout, "write", () => true);
+  const stderr = t.mock.method(process.stderr, "write", () => true);
+  const status = main(["scan", "--catalog", MINI, "--format", "json", "--require-complete"], {
+    windows: true,
+    probe: (id) => id === "service-list"
+      ? { ok: false, stdout: "", error: "fixture failure" }
+      : { ok: true, stdout: "" },
+  });
+  assert.equal(status, 2);
+  assert.deepEqual(JSON.parse(stdout.mock.calls[0].arguments[0]).probes_failed, ["service-list"]);
+  assert.match(stderr.mock.calls[0].arguments[0], /incomplete scan/);
+});
+
+test("signals JSON stays parseable on findings and strict mode reports malformed rows", (t) => {
+  const stdout = t.mock.method(process.stdout, "write", () => true);
+  const stderr = t.mock.method(process.stderr, "write", () => true);
+  const probe = (id) => ({
+    ok: true,
+    stdout: id === "process-list"
+      ? '"Name","ExecutablePath"\n"SynthRMM.exe","C:\\Temp\\SynthRMM.exe"\n'
+      : id === "task-list" ? '"invalid row"\n' : "",
+  });
+  const args = ["signals", "--catalog", MINI, "--format", "json"];
+  assert.equal(main(args, { windows: true, probe }), 1);
+  assert.equal(main([...args, "--require-complete"], { windows: true, probe }), 2);
+  assert.equal(stdout.mock.callCount(), 2);
+  for (const call of stdout.mock.calls) {
+    const report = JSON.parse(call.arguments[0]);
+    assert.equal(report.failing_count, 1);
+    assert.equal(report.skipped_rows, 1);
+  }
+  assert.match(stderr.mock.calls[0].arguments[0], /WARNING/);
+  assert.match(stderr.mock.calls[1].arguments[0], /1 malformed row/);
+});
+
+test("invalid threshold is rejected before any probes run", (t) => {
+  t.mock.method(process.stderr, "write", () => true);
+  const probe = t.mock.fn(() => ({ ok: true, stdout: "" }));
+  const status = main(["signals", "--catalog", MINI, "--many-families-threshold", "2abc"], {
+    windows: true, probe,
+  });
+  assert.equal(status, 2);
+  assert.equal(probe.mock.callCount(), 0);
+});
