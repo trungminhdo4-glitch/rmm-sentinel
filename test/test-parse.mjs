@@ -26,6 +26,20 @@ test("parseCsvRow handles quoted commas and doubled quotes", () => {
   assert.deepEqual(parseCsvRow('"a,b","c""d"'), ["a,b", 'c"d']);
 });
 
+test("parsePowerShellCsv counts malformed quotes without losing the next row", () => {
+  const text = [
+    '"Name","Path"',
+    '"truncated","unterminated',
+    '"closed"suffix,"path"',
+    'literal"quote,"path"',
+    '"valid","C:\\path, with comma"',
+  ].join("\n");
+  assert.deepEqual(parsePowerShellCsv(text, ["name", "path"]), {
+    records: [{ name: "valid", path: "C:\\path, with comma" }],
+    skipped: 3,
+  });
+});
+
 test("parseCsvRow returns null for empty rows", () => {
   assert.equal(parseCsvRow(""), null);
   assert.equal(parseCsvRow("   "), null);

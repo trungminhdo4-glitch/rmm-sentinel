@@ -11,16 +11,15 @@ export function ikey(value) {
 
 /**
  * RFC 4180-style CSV line parser for a single logical row.
- * Returns the field array, or null when the row is empty.
- * Handles quoted fields with embedded commas, quotes and CR/LF is not
- * expected per row (callers split on physical lines; PowerShell CSV output
- * keeps every record on one line).
+ * Returns the field array, or null for an empty or malformed row.
+ * Handles quoted fields with embedded commas and escaped quotes.
+ * Callers supply one physical line at a time.
  */
 export function parseCsvRow(line) {
   const fields = [];
   let field = "";
   let inQuotes = false;
-  let started = false;
+  let closedQuote = false;
   for (let i = 0; i < line.length; i++) {
     const ch = line[i];
     if (inQuotes) {
@@ -30,28 +29,29 @@ export function parseCsvRow(line) {
           i++;
         } else {
           inQuotes = false;
+          closedQuote = true;
         }
       } else {
         field += ch;
       }
       continue;
     }
-    if (ch === '"' && field === "") {
-      inQuotes = true;
-      started = true;
-      continue;
-    }
     if (ch === ",") {
       fields.push(field);
       field = "";
-      started = false;
+      closedQuote = false;
+      continue;
+    }
+    if (closedQuote) return null;
+    if (ch === '"') {
+      if (field !== "") return null;
+      inQuotes = true;
       continue;
     }
     field += ch;
-    started = true;
   }
+  if (inQuotes) return null;
   fields.push(field);
-  if (fields.length === 1 && fields[0] === "" && !started) return null;
   // a row of whitespace-only fields is blank - callers must not see it as data
   if (fields.every((f) => f.trim() === "")) return null;
   return fields;
