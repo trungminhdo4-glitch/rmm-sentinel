@@ -89,6 +89,23 @@ test("matchTool matches catalog service binary names even when the service name 
   assert.match(entry.evidence[0].detail, /quickrmm_agent\.exe/);
 });
 
+test("buildInventory matches the quoted service executable before its arguments", () => {
+  const catalog = loadCatalog("test/fixtures/catalog-mini.json");
+  const path = "C:\\Program Files\\QuickRMM\\quickrmm_agent.exe";
+  const command = `"${path}" --log "C:\\Temp\\worker.log"`;
+  const csvCommand = command.replaceAll('"', '""');
+  const { probes } = collectProbes(fakeRunner({
+    "service-list": [
+      '"Name","DisplayName","PathName","State","StartMode"',
+      `"SomeSvc","Fixture","${csvCommand}","Running","Auto"`,
+    ].join("\n"),
+  }));
+
+  const doc = buildInventory(catalog, probes);
+  assert.deepEqual(doc.inventory.map((entry) => entry.tool_id), ["quickrmm"]);
+  assert.equal(doc.inventory[0].evidence[0].path, path);
+});
+
 test("matchTool does not attribute unrelated artifacts", () => {
   const catalog = loadCatalog("test/fixtures/catalog-mini.json");
   const tool = catalog.tools.find((t) => t.id === "synthrmm");

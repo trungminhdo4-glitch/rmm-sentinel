@@ -61,17 +61,20 @@ export function matchTool(tool, data) {
   }
 
   for (const rec of data.services) {
+    const command = rec.pathname?.trim() ?? "";
+    const executable = command.match(/^"([^"]+)"(?:\s|$)/)?.[1] ?? command;
+    const base = windowsBasename(executable);
     if (anyMatch(artifacts.services ?? [], rec.name)) {
       evidence.push({
         kind: "service",
-        detail: `service ${clip(rec.name)}${rec.pathname ? ` via ${clip(rec.pathname)}` : ""} (${clip(rec.state)})`,
-        path: rec.pathname || null,
+        detail: `service ${clip(rec.name)}${executable ? ` via ${clip(executable)}` : ""} (${clip(rec.state)})`,
+        path: executable || null,
       });
-    } else if (rec.pathname && windowsBasename(rec.pathname) && anyMatch(artifacts.processes ?? [], windowsBasename(rec.pathname))) {
+    } else if (base && anyMatch(artifacts.processes ?? [], base)) {
       evidence.push({
         kind: "service",
-        detail: `service ${clip(rec.name)} runs ${clip(windowsBasename(rec.pathname))} (${clip(rec.state)})`,
-        path: rec.pathname || null,
+        detail: `service ${clip(rec.name)} runs ${clip(base)} (${clip(rec.state)})`,
+        path: executable,
       });
     }
   }

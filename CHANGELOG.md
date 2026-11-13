@@ -9,6 +9,8 @@ signing and support policy.
 
 ## [Unreleased]
 
+* Recognize quoted service executable paths followed by launch arguments.
+
 ### Added
 
 * **Read-only scanner core** — Windows inventory of catalogued RMM tools via

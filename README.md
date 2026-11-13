@@ -53,7 +53,7 @@ Scope of v0.1:
 | Surface | What is checked |
 | --- | --- |
 | Processes | names matched against 237 catalogued RMM families (wildcard-aware, case-insensitive) |
-| Services | service names + service binary path names |
+| Services | service names and binary paths, including quoted paths followed by arguments |
 | Uninstall entries | display names vs. catalog uninstall-key names |
 | Scheduled tasks | task names against catalogued task names (`schtasks /query`) |
 | Abuse signals | RS-SIG-001..005 heuristics (below), severity-ordered, `--fail-on` gate |
