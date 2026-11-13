@@ -44,9 +44,11 @@ test("runProbe rejects unknown probe ids without spawning anything", () => {
   const exec = fakeExec(() => {
     throw new Error("must not be called");
   });
-  const res = runProbe("no-such-probe", exec, "win32");
-  assert.equal(res.ok, false);
-  assert.match(res.error, /unknown probe/);
+  for (const id of ["no-such-probe", "constructor", "__proto__", "toString"]) {
+    const res = runProbe(id, exec, "win32");
+    assert.equal(res.ok, false);
+    assert.equal(res.error, `unknown probe: ${id}`);
+  }
   assert.equal(exec.calls.length, 0);
 });
 

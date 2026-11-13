@@ -70,10 +70,11 @@ export const PROBES = {
  * built from partial probes says so).
  */
 export function runProbe(probeId, exec = spawnSync, platform = process.platform) {
-  const probe = PROBES[probeId];
-  if (!probe) {
-    return { ok: false, stdout: "", stderr: "", status: null, error: `unknown probe: ${probeId}` };
+  if (typeof probeId !== "string" || !Object.hasOwn(PROBES, probeId)) {
+    const label = typeof probeId === "string" ? probeId : "(expected string)";
+    return { ok: false, stdout: "", stderr: "", status: null, error: `unknown probe: ${label}` };
   }
+  const probe = PROBES[probeId];
   if (probe.windows && platform !== "win32") {
     return {
       ok: false,
