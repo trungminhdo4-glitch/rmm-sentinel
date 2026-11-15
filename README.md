@@ -235,6 +235,7 @@ Important flags:
 Exit codes: **0** — clean / no signal at or above `--fail-on`;
 **1** — signals at or above `--fail-on` (JSON mode sends the warning to stderr);
 **2** — usage or runtime error, or an incomplete scan with `--require-complete`.
+An unknown flag is a usage error and stops the command before any probes run.
 Strict mode emits the partial report before returning exit 2, even when the
 report contains signals above the threshold.
 

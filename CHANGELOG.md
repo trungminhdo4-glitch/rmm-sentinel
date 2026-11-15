@@ -9,6 +9,10 @@ signing and support policy.
 
 ## [Unreleased]
 
+### Fixed
+
+* Reject unknown CLI flags before running any probes, so typos in automation fail with exit 2.
+
 ### Added
 
 * **Read-only scanner core** — Windows inventory of catalogued RMM tools via

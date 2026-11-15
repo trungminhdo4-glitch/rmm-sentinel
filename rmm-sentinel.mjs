@@ -22,6 +22,8 @@ import { VERSION } from "./src/version.mjs";
 import { buildInventory, collectProbes } from "./src/scan.mjs";
 import { evaluateSignals, failsOn, SIGNAL_RULES } from "./src/signals.mjs";
 
+const VALUE_FLAGS = new Set(["format", "out", "fail-on", "catalog", "many-families-threshold"]);
+
 const USAGE = `RMM-Sentinel ${VERSION} - defensive, read-only RMM scanner
 
 usage: node rmm-sentinel.mjs <command> [flags]
@@ -77,6 +79,7 @@ function parseFlags(argv) {
         i++;
       }
       if (name === "require-complete") return { error: "--require-complete takes no value" };
+      if (!VALUE_FLAGS.has(name)) return { error: `unknown flag --${name}` };
       if (!value || value.startsWith("--")) return { error: `flag --${name} requires a value` };
       flags[name] = value;
     } else {
