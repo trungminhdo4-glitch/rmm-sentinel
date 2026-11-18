@@ -60,6 +60,22 @@ test("missing flag value exits 2", () => {
   assert.match(res.stderr, /requires a value/);
 });
 
+test("unknown flags exit 2 before starting probes", (t) => {
+  const stdout = t.mock.method(process.stdout, "write", () => true);
+  const stderr = t.mock.method(process.stderr, "write", () => true);
+  const probe = t.mock.fn(() => ({ ok: true, stdout: "" }));
+  for (const typo of [["--require-complet", "true"], ["--require-complet=true"]]) {
+    const status = main(["scan", "--catalog", MINI, ...typo], { windows: true, probe });
+    assert.equal(status, 2);
+  }
+  assert.equal(stdout.mock.callCount(), 0);
+  assert.equal(probe.mock.callCount(), 0);
+  assert.equal(stderr.mock.callCount(), 2);
+  for (const call of stderr.mock.calls) {
+    assert.match(call.arguments[0], /unknown flag --require-complet\b/);
+  }
+});
+
 test("unexpected positional argument exits 2", () => {
   const res = runCli(["tools", "extra"]);
   assert.equal(res.status, 2);
