@@ -11,6 +11,7 @@ signing and support policy.
 
 ### Fixed
 
+* DCO gate exempts GitHub App bot commits (`<id>+<name>[bot]@users.noreply.github.com`), so Dependabot PRs are no longer blocked by a sign-off they cannot add.
 * Reject unknown CLI flags before running any probes, so typos in automation fail with exit 2.
 
 ### Added
