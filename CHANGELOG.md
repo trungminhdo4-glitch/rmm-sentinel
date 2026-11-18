@@ -57,6 +57,8 @@ signing and support policy.
 
 ### Fixed
 
+* **DCO gate on pull requests** — `ci/check-dco.mjs` skips merge commits, so
+  GitHub's unsigned synthetic merge commit no longer fails every PR.
 * **CI** — the `writeIfOut` writer test used the Windows-only literal path
   `C:\tmp\out.json`; on POSIX `dirname()` of that string is `.`, so the
   directory creation was skipped, the assertion saw 1 call instead of 2,
