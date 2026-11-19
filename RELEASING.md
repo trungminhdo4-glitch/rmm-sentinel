@@ -34,9 +34,10 @@ A fresh clone becomes green with one command:
 $ node ci/bootstrap.mjs
 ```
 
-The script executes a fixed step plan (tool preflight first, then a syntax
-check of every shipped `.mjs`, the full test suite, the gate unit tests, the
-keyword gate). A missing required tool (`node`, `gitleaks`, `actionlint`,
+The script checks the required tools, runs `actionlint` against the GitHub
+Actions workflows, checks every shipped `.mjs` for syntax errors, then runs the
+full test suite, the gate unit tests, and the keyword gate. A missing required
+tool (`node`, `gitleaks`, `actionlint`,
 `yamllint`) fails closed with exit 2 and a pointer to the machine tool
 registry (`school/tool-registry`) — or, on machines without that registry,
 with a pointer to this section of RELEASING.md. A failing step exits 1. The
