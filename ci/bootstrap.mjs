@@ -2,7 +2,7 @@
 // bootstrap.mjs — reproducible fresh-clone bootstrap (node builtins only).
 //
 // Deterministic, ordered step plan:
-//   tool-preflight -> node-check -> node-test -> gate-tests -> keyword-gate
+//   tool-preflight -> workflow-lint -> node-check -> node-test -> gate-tests -> keyword-gate
 //
 // Fail-closed: a missing required tool exits 2 in every mode (the preflight
 // runs first, so no step can fail with a raw ENOENT before the check); a
@@ -118,6 +118,7 @@ export function planSteps(root = REPO_ROOT) {
       cmd: "preflight",
       argv: [...REQUIRED_TOOLS],
     },
+    { id: "workflow-lint", kind: "exec", cmd: "actionlint", argv: [] },
     {
       id: "node-check",
       kind: "node-check",
