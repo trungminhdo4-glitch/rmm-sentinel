@@ -34,8 +34,9 @@ A fresh clone becomes green with one command:
 $ node ci/bootstrap.mjs
 ```
 
-The script checks the required tools, runs `actionlint` against the GitHub
-Actions workflows, checks every shipped `.mjs` for syntax errors, then runs the
+The script checks the required tools, lints GitHub configuration YAML with
+`yamllint`, validates Actions workflows with `actionlint`, checks every
+shipped `.mjs` for syntax errors, then runs the
 full test suite, the gate unit tests, and the keyword gate. A missing required
 tool (`node`, `gitleaks`, `actionlint`,
 `yamllint`) fails closed with exit 2 and a pointer to the machine tool

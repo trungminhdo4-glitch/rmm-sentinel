@@ -1,7 +1,7 @@
 // test-bootstrap.mjs - tests for the reproducible bootstrap plan (node:test).
 //
 // TDD contract: bootstrap must be a deterministic, ordered step plan:
-// tool preflight -> workflow lint -> node syntax check -> tests -> gate tests -> keyword gate.
+// tool preflight -> YAML lint -> workflow lint -> node syntax check -> tests -> gate tests -> keyword gate.
 // Missing required tools fail closed with exit 2 and a concrete install
 // hint - never silently, and with the same exit code in every mode.
 // There is no --offline flag: this project has no dependency-download step.
@@ -32,6 +32,7 @@ test("planSteps is ordered and complete", () => {
   const ids = planSteps().map((s) => s.id);
   assert.deepEqual(ids, [
     "tool-preflight",
+    "yaml-lint",
     "workflow-lint",
     "node-check",
     "node-test",
@@ -69,8 +70,11 @@ test("node-check lists every repository .mjs file exactly once", () => {
   assert.ok(files.some((f) => f.startsWith("test/")));
 });
 
-test("workflow-lint, gate-tests and keyword-gate run their concrete checks", () => {
+test("linters and gate steps run their concrete checks", () => {
   const steps = Object.fromEntries(planSteps().map((s) => [s.id, s]));
+  assert.deepEqual(steps["yaml-lint"], {
+    id: "yaml-lint", kind: "exec", cmd: "yamllint", argv: [".github"],
+  });
   assert.deepEqual(steps["workflow-lint"], {
     id: "workflow-lint", kind: "exec", cmd: "actionlint", argv: [],
   });
