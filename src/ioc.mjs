@@ -84,8 +84,8 @@ function yamlString(value) {
 }
 
 /**
- * Emit Sigma rules for one tool: a process-creation rule and a service-
- * installation rule (EventID 7045). IDs are deterministic uuid5s.
+ * Emit catalog-derived process, service-installation (7045), and scheduled-
+ * task creation (4698) Sigma rules. IDs are deterministic uuid5s.
  */
 export function sigmaRulesForTool(tool, catalog) {
   const rules = [];
@@ -108,7 +108,7 @@ export function sigmaRulesForTool(tool, catalog) {
       },
       falsepositives,
       level: "medium",
-      tags: ["rmm_sentinel"],
+      tags: ["rmm_sentinel.catalog"],
     });
   }
 
@@ -128,11 +128,45 @@ export function sigmaRulesForTool(tool, catalog) {
       },
       falsepositives,
       level: "medium",
-      tags: ["rmm_sentinel"],
+      tags: ["rmm_sentinel.catalog"],
+    });
+  }
+
+  if ((artifacts.scheduled_tasks ?? []).length > 0) {
+    // The scanner matches a bare task name against the final path segment;
+    // a catalogued path is matched as a whole. Keep that boundary in Sigma.
+    const leafNames = artifacts.scheduled_tasks.filter((name) => !name.includes("\\"));
+    const taskPaths = artifacts.scheduled_tasks.filter((name) => name.includes("\\"));
+    const detection = { selection_event: { EventID: 4698 } };
+    if (leafNames.length) {
+      detection.selection_task_leaf = {
+        "TaskName|endswith": leafNames.map((name) => sigmaTaskPattern(`\\${name}`)),
+      };
+    }
+    if (taskPaths.length) {
+      detection.selection_task_path = { TaskName: taskPaths.map(sigmaTaskPattern) };
+    }
+    detection.condition = "selection_event and 1 of selection_task_*";
+    rules.push({
+      title: `RMM-Sentinel: ${tool.name} scheduled task creation`,
+      id: uuid5(`rmm-sentinel:${catalog.version}:task:${tool.id}`),
+      status: "test",
+      description: `Detects Security task-creation events (EventID 4698) whose TaskName matches the ${tool.name} catalogue. Requires successful Other Object Access Events auditing. Source: ${catalogs}. Presence is not evidence of misuse.`,
+      logsource: { product: "windows", service: "security" },
+      detection,
+      falsepositives,
+      level: "medium",
+      tags: ["rmm_sentinel.catalog"],
     });
   }
 
   return rules;
+}
+
+// Catalog '*' is a wildcard; '?' and backslashes are literal. Sigma also
+// reserves '?' and uses backslashes to escape wildcards and backslashes.
+function sigmaTaskPattern(value) {
+  return value.replace(/\\/g, "\\\\").replace(/\?/g, "\\?");
 }
 
 /** All Sigma rules for the catalog, as a YAML document (--- separated). */

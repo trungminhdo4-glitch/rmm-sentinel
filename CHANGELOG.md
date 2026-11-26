@@ -9,7 +9,15 @@ signing and support policy.
 
 ## [Unreleased]
 
+### Added
+
+* Catalog-derived Sigma rules for scheduled task creation (Windows Security
+  EventID 4698), with synthetic event tests and documented auditing requirements.
+
 ### Fixed
+
+* Sigma rule tags use the namespace-qualified `rmm_sentinel.catalog` form;
+  the previous `rmm_sentinel` tag is rejected by the pySigma parser.
 
 * DCO gate exempts GitHub App bot commits (`<id>+<name>[bot]@users.noreply.github.com`), so Dependabot PRs are no longer blocked by a sign-off they cannot add.
 * Reject unknown CLI flags before running any probes, so typos in automation fail with exit 2.
