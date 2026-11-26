@@ -1,0 +1,16 @@
+[
+  {"kind":"process","match":true,"event":{"Image":"C:\\Program Files\\SynthRMM\\SYNTHRMM.EXE"}},
+  {"kind":"process","match":false,"event":{"Image":"C:\\Tools\\prefixsynthrmm.exe"}},
+  {"kind":"process","match":false,"event":{"Image":"C:\\Tools\\synthrmm.exe.bak"}},
+  {"kind":"process","match":false,"event":{}},
+  {"kind":"service","match":true,"event":{"EventID":7045,"ServiceName":"synthrmm"}},
+  {"kind":"service","match":false,"event":{"EventID":4697,"ServiceName":"SynthRMM"}},
+  {"kind":"service","match":false,"event":{"EventID":7045,"ServiceName":"SynthRMMHelper"}},
+  {"kind":"service","match":false,"event":{"EventID":7045}},
+  {"kind":"task","match":true,"event":{"EventID":4698,"TaskName":"\\SynthRMMUpdateTask"}},
+  {"kind":"task","match":true,"event":{"EventID":4698,"TaskName":"\\Vendor\\synthrmmupdatetask-daily"}},
+  {"kind":"task","match":false,"event":{"EventID":4698,"TaskName":"\\Vendor\\PrefixSynthRMMUpdateTask"}},
+  {"kind":"task","match":false,"event":{"EventID":4698,"TaskName":"\\UnrelatedUpdateTask"}},
+  {"kind":"task","match":false,"event":{"EventID":4702,"TaskName":"\\SynthRMMUpdateTask"}},
+  {"kind":"task","match":false,"event":{"EventID":4698}}
+]

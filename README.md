@@ -42,7 +42,7 @@ Built for defensive use cases:
   dropped in a strange place" shapes: an agent running from Temp, a renamed
   service binary, an uninstall entry outside the documented install
   locations, sprawl of many families at once.
-* **Detection engineering** — Sigma (process creation + EventID 7045) and
+* **Detection engineering** — Sigma (process creation + EventIDs 7045/4698) and
   IOC packs (JSON/CSV) derived deterministically from the catalog, ready for
   a SIEM/EDR tune-up.
 * **Security research** into RMM abuse, conducted lawfully and without
@@ -244,6 +244,36 @@ inside a value is a wildcard (`AnyDesk-*` matches `AnyDesk-1234`). Uninstall
 entries match by exact display name or uninstall-key name. `schtasks` task
 names are locale-dependent beyond the name column — the tool only reads the
 task name.
+
+### Offline Sigma rule pack
+
+```console
+node rmm-sentinel.mjs ioc --format sigma --out rmm-rules.yml
+node rmm-sentinel.mjs ioc --catalog test/fixtures/catalog-mini.json --format sigma
+```
+
+The pack contains process-creation rules, System service-installation rules
+(EventID 7045), and Security scheduled-task creation rules (EventID 4698) for
+tools with the corresponding catalog artifacts. Task rules match a catalogued
+bare name at the final `TaskName` path segment, including tasks in folders;
+catalogued full paths match the whole field. Matching is case-insensitive and
+preserves the catalog's `*` wildcard. A literal `?` remains literal.
+
+For 4698 events, enable successful **Audit Other Object Access Events** and
+collect the Windows Security channel; see Microsoft's
+[event 4698 reference](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4698)
+and [audit policy](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-other-object-access-events).
+The generator only emits rules and does not enable auditing or ingest events.
+Convert the pack with a [Sigma-compatible backend](https://sigmahq.io/sigma-specification/specification/sigma-rules-specification.html)
+and verify the target's `TaskName`/`EventID` field mappings before deployment.
+Rules carry the custom namespace-qualified tag `rmm_sentinel.catalog`.
+
+Rules are `status: test`: catalogued names also occur in approved deployments.
+A match is a review lead, not evidence of misuse. Renamed tasks, unlisted names,
+missing audit events, and task updates (4702) are outside this creation rule's
+coverage. The offline test fixtures check positive and negative events for the
+emitted selector subset; they do not establish measured production detection
+rates or validate every SIEM conversion.
 
 CI / scheduled use:
 
